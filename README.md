@@ -44,6 +44,7 @@ $ sudo mysql
 > exit
 $ cd model
 $ sudo mysql data-converter < wsd_data_converter_schema.sql
+$ cd ../
 $ node index.js
 ```
 
