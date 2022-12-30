@@ -1,7 +1,6 @@
-![Data Converter Logo](./fig/OneLineBlue-min.png)
-
 # Data-Converter 
 
+![Data Converter Logo](./fig/OneLineBlue-min.png)
 [![License](https://img.shields.io/badge/License-Apache_2.0-blue.svg)](https://opensource.org/licenses/Apache-2.0)
 
 ## Abstract
@@ -18,6 +17,7 @@ This is the repository for Data Converter, an application for converting EDI fil
 
 ```
 $ curl -fsSL https://deb.nodesource.com/setup_16.x | sudo -E bash -
+$ sudo apt-get install -y git
 $ sudo apt-get install -y nodejs
 $ sudo apt-get install -y redis
 $ sudo apt-get install -y mariadb-server
@@ -31,6 +31,22 @@ $ sudo apt-get install -y mariadb-server
 - create database user
 - setup schema for database
 - create first user
+
+```
+$ git clone https://github.com/WebServiceDevelopment/Data-Converter.git
+$ cd Data-Converter
+$ npm i
+$ sudo mysql
+> CREATE DATABASE 'data-converter';
+> CREATE USER 'admin'@'localhost' IDENTIFIED BY 'keyboardcat';
+> GRANT ALL ON 'data-converter'.* TO 'admin'@'localhost';
+> FLUSH PRIVILEGES;
+> exit
+$ cd model
+$ sudo mysql data-converter < wsd_data_converter_schema.sql
+$ node index.js
+```
+
 
 ## Image
 
