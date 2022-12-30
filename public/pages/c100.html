@@ -1,0 +1,156 @@
+<!doctype html>
+<html>
+	<head>
+		
+		<title>C100</title>
+		<meta charset="utf-8"/>
+		<link rel="stylesheet" type="text/css" href="../css/c100.css"/>
+
+	</head>
+
+	<body>
+
+		<main id="C100.main" style="visibility:hidden">
+
+			<nav>
+				
+				<table>
+					<tr>
+						<td>
+							<h2>内海商品管理</h2>
+						</td>
+						<td class="button">
+							<button id="C100.table.add">+ 商品追加</button>
+						</td>
+						<td class="button">
+							<button id="C100.table.csv">CSVファイル選択</button>
+						</td>
+					</tr>
+				</table>
+
+			</nav>
+
+			<section>
+
+				<div class="thead">
+					<table>
+						<tr>
+							<th class="a" rowspan="2">
+								No.
+							</th>
+							<th class="b" id="C100.table.seller_name">
+								
+							</th>
+							<th class="c">
+							</th>
+							<th class="d" rowspan="2">
+								商品名
+							</th>
+							<th class="e" id="C100.table.buyer_name_1">
+							</th>
+							<th class="e" rowspan="2">
+								入数
+							</th>
+							<th class="f" id="C100.table.buyer_name_2">
+							</th>
+							<th class="g" id="C100.table.buyer_name_3">
+							</th>
+							<th class="h" rowspan="2">
+								Edit
+							</th>
+						</tr>
+						<tr>
+							<th class="b">
+								商品コード
+							</th>
+							<th class="c">
+								商品コード
+							</th>
+							<th class="e" id="C100.unit.string_1">
+							</th>
+							<th class="f" id="C100.unit.string_2">
+							</th>
+							<th class="g" id="C100.unit.string_3">
+							</th>
+						</tr>
+					</table>
+				</div>
+
+				<div class="tbody" id="C100.tbody">
+
+					<table>
+						<thead id="C100.table.thead">
+						</thead>
+						<tbody id="C100.table.tbody">
+
+						</tbody>
+					</table>
+
+				</div>
+
+			</section>
+
+			<aside>
+
+				<!-- START DROP WIDGET -->
+
+				<div class="drop-widget">
+
+					<div class="header">
+						Drop Area
+					</div>
+
+					<div class="body">
+						
+						<div class="space" id="C100.file.space">
+
+							<div class="border">
+
+								<img class="down" src="../img/down.svg"/>
+
+								<p>
+									<b>Choose a file</b> or drag here
+								</P
+
+							</div>
+
+						</div>
+
+						<input type="file" id="C100.file.input" accept='.csv'/>
+
+					</div>
+
+				</div>
+
+				<!-- END DROP Widget -->
+
+				<!-- START HISTORY WIDGET -->
+
+				<div class="history-widget">
+
+					<div class="header">
+						History Widget
+					</div>
+
+					<div class="body">
+
+						<ul id="C100.history.body">
+						
+						</ul>
+
+					</div>
+
+				</div>
+
+				<!-- END HISTORY WIDGET -->
+
+			</aside>
+
+		</main>
+		
+<script type="text/javascript" src="../lib/ScrollWidth.js"></script>
+<script type="text/javascript" src="../js/c100.js"></script>
+
+	</body>
+
+</html>

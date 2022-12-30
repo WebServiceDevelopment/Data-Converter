@@ -1,0 +1,259 @@
+<!doctype html>
+<html>
+	<head>
+		
+		<title>C600</title>
+		<meta charset="utf-8"/>
+		<link rel="stylesheet" type="text/css" href="../css/c600.css"/>
+
+	</head>
+
+	<body>
+
+		<main>
+
+			<!-- 
+				START ADDRESS WIDGET
+			-->
+
+			<div class="fixes-widget">
+
+				<div class="header">
+
+					<table>
+						<tr>
+							<td class="txt">
+								顧客履歴
+							</td>
+							<td class="sel">
+								<select id="C600.history.select">
+									<option value="order_no">注文No.</option>
+								</select>
+							</td>
+							<td class="ipt">
+								<input type="text" placeholder="注文番号" id="C600.history.input"/>
+							</td>
+							<td class="btn">
+								<button id="C600.history.search">検索</button>
+							</td>
+						</tr>
+					</table>
+
+
+				</div>
+
+				<div class="body">
+
+					<ul id="C600.history.list">
+
+					</ul>
+
+				</div>
+
+			</div>
+
+			<div class="preview-widget">
+
+				<ul id="C600.csv.preview">
+
+				</ul>
+
+				<div class="reset hide" id="C600.history.reset">
+
+					<div class="back" id="C600.history.back">
+						<img src="../img/arrow-back.svg"/>戻る
+					</div>
+				
+				</div>
+
+
+			</div>
+
+			<!--
+				START DELIVER WIDGET
+			-->
+
+			<div class="deliver-widget">
+
+				<div class="totals drop">
+
+					<div class="header">
+
+						EDI CSV (フォーレスト) *csv
+						<button id='C600.output.clear'>Clear</button>
+
+					</div>
+
+					<div class="body edi" id="C600.csv.area">
+
+						<div class="drag-area">
+
+							<div class="cover"></div>
+
+							<div class="border">
+								
+								<img class="down" src="../img/down.svg"/>
+
+								<p>
+									<b>Choose a file</b> or drag it here
+								</p>
+
+							</div>
+
+						</div>
+
+						<input id="C400.edi.file" type="file" accept=".pdf"/>
+
+					</div>
+
+				</div>
+
+				<!-- START TOTALS -->
+				
+				<!-- END TOTALS -->
+
+				<div class="csv">
+					
+					<div class="header">
+						CSV Preview
+					</div>
+
+					<textarea id="C600.output.textarea" placeholder="CSV" class="preview"></textarea>
+
+				</div>
+
+				<!-- START CONFIRM -->
+
+				<div class="settings">
+
+					<div class="header">
+						CSV書き出し
+
+						<div class="radio">
+
+						</div>
+
+					</div>
+
+					<div class="body">
+
+						<li>
+							<table>
+								<tr>
+									<td class="label">Encoding</td>
+									<td>
+
+										<label>
+											<input type="radio" 
+												name="encoding" 
+												checked 
+												id="C600.output.sjis"/>
+											SJIS
+										</label>
+
+									</td>
+									<td>
+
+										<label>
+											<input type="radio" 
+												name="encoding" 
+												id="C600.output.utf8"/>
+											UTF8
+										</label>
+
+									</td>
+								</tr>
+
+								<tr>
+									<td class="label">Comments</td>
+									<td>
+
+										<label>
+											<input type="radio" 
+												name="comments" 
+												checked 
+												id="C600.output.no_comments"/>
+											Don't Include
+										</label>
+
+									</td>
+									<td>
+
+										<label>
+											<input type="radio" 
+												name="comments" 
+												id="C600.output.yes_comments"/>
+											Include
+										</label>
+
+									</td>
+								</tr>
+
+								<tr>
+									<td class="label">Format</td>
+									<td>
+
+										<label>
+											<input type="radio" 
+												name="format" 
+												checked 
+												id="C600.output.fmt_send"/>
+											送状形式
+										</label>
+
+									</td>
+									<td>
+
+										<label>
+											<input type="radio" 
+												name="format" 
+												id="C600.output.fmt_wsd"/>
+											WSD形式
+										</label>
+
+									</td>
+								</tr>
+
+								<tr>
+									<td class="label">Filename</td>
+									<td colspan="2">
+
+										<input type="text" 
+											id="C600.output.filename"
+											placeholder="filename"
+											/>
+
+									</td>
+								</tr>
+
+							</table>
+						</li>
+
+						<button class="submit" id="C600.output.submit">
+							CSV 書き出し
+						</button>
+
+					</div>
+
+				</div>
+
+				<!-- END SETTINGS -->
+
+			</div>
+
+			<!--
+				END DELIVER WIDGET
+			-->
+
+		</main>
+
+		<script type="text/javascript" src="../lib/moment.js"></script>
+		<script type="text/javascript" src="../lib/FileSaver.js"></script>
+		<script type="text/javascript" src="../lib/getFormatPhone.js"></script>
+		<script type="text/javascript" src="../lib/encoding.js"></script>
+		<script type="text/javascript" src="../lib/ScrollWidth.js"></script>
+		<script type="text/javascript" src="../js/c600.js"></script>	
+
+	</body>
+
+</html>

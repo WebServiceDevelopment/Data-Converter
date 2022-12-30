@@ -1,0 +1,161 @@
+<!doctype html>
+<html>
+	<head>
+		
+		<title>C450</title>
+		<meta charset="utf-8"/>
+		<link rel="stylesheet" type="text/css" href="../css/c450.css"/>
+
+	</head>
+
+	<body>
+
+		<main id="C450.main" style="visibility:hidden">
+
+			<nav>
+				
+				<table>
+					<tr>
+						<td>
+							<h2>ジャンブレ商品管理</h2>
+						</td>
+						<td>
+							<input type='file' id='C450.table.file' accept='.csv'/>
+						</td>
+						<td class="button">
+							<button id="C450.table.add_one">+ 商品追加</button>
+						</td>
+						<td class="button">
+							<button id="C450.table.add_all">CSVファイル選択</button>
+						</td>
+					</tr>
+				</table>
+
+			</nav>
+
+			<section>
+
+				<div class="thead">
+					<table>
+						<tr>
+							<th class='a' rowspan="2">
+								No.
+							</th>
+							<th class='b' id="C450.table.buyer_name_1">
+							</th>
+							<th class='c' id="C450.table.seller_name_1">
+							</th>
+							<th class='d' id="C450.table.buyer_name_2">
+							</th>
+							<th class='e' id="C450.table.seller_name_2">
+							</th>
+							<th class='f' rowspan="2">
+								入数
+							</th>
+							<th class='g' rowspan="2">
+								最新販売単価０１
+							</th>
+							<th class='h' rowspan="2">
+								最新販売単価０２
+							</th>
+							<th class='i' rowspan="2">
+								Edit
+							</th>
+						</tr>
+						<tr>
+							<th class='b'>
+								商品コード
+							</th>
+							<th class='c'>
+								商品コード
+							</th>
+							<th class='d'>
+								商品名
+							</th>
+							<th class='e'>
+								商品名
+							</th>
+						</tr>
+					</table>
+				</div>
+
+				<div class="tbody" id="C450.tbody">
+
+					<table>
+						<thead id="C450.table.thead">
+
+						</thead>
+						<tbody id="C450.table.tbody">
+
+						</tbody>
+					</table>
+
+				</div>
+
+			</section>
+
+			<aside>
+
+				<!-- START DROP WIDGET -->
+
+				<div class="drop-widget">
+
+					<div class="header">
+						Drop Area
+					</div>
+
+					<div class="body">
+						
+						<div class="space" id="C450.file.space">
+
+							<div class="border">
+
+								<img class="down" src="../img/down.svg"/>
+
+								<p>
+									<b>Choose a file</b> or drag here
+								</P
+
+							</div>
+
+						</div>
+
+						<input type="file" id="C450.file.input" multiple="multiple"/>
+
+					</div>
+
+				</div>
+
+				<!-- END DROP Widget -->
+
+				<!-- START HISTORY WIDGET -->
+
+				<div class="history-widget">
+
+					<div class="header">
+						History Widget
+					</div>
+
+					<div class="body">
+
+						<ul id="C450.history.body">
+						
+						</ul>
+
+					</div>
+
+				</div>
+
+				<!-- END HISTORY WIDGET -->
+
+			</aside>
+
+		</main>
+		
+<script type="text/javascript" src="../lib/ScrollWidth.js"></script>
+<script type="text/javascript" src="../lib/encoding.js"></script>
+<script type="text/javascript" src="../js/c450.js"></script>
+
+	</body>
+
+</html>

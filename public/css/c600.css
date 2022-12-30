@@ -1,0 +1,1904 @@
+html {
+
+	height: 100%;
+	padding: 0;
+	margin: 0;
+
+}
+
+body {
+
+	height: 100%;
+	padding: 0;
+	margin: 0;
+	background-color: #fff;
+	overflow: hidden;
+
+}
+
+main {
+
+	width: 100%;
+	height: 100%;
+
+	--address-width: 420px;
+	--deliver-width: 24%;
+	--padding-width: 8px;
+	--line-color: #444;
+
+	--fixes-width: 20%;
+
+}
+
+div.address-widget {
+
+	position: absolute;
+	left: var(--padding-width);
+	top: var(--padding-width);
+	width: var(--address-width);
+	height: calc(100% - var(--padding-width) * 2);
+
+}
+
+div.deliver-widget {
+
+	position: absolute;
+	right: var(--padding-width);
+	top: var(--padding-width);
+	width: var(--deliver-width);
+	height: calc(100% - var(--padding-width) * 2);
+
+}
+
+div.document-widget.drag-over div.outline {
+
+	pointer-events: none;
+
+}
+
+div.document-widget {
+
+	position: absolute;
+	left: calc(var(--address-width) + 2 * var(--padding-width));
+	top: var(--padding-width);
+	height: calc(100% - var(--padding-width) * 2);
+	width: calc(100% - var(--address-width) - var(--deliver-width) - var(--padding-width) * 4);
+	background-color: rgba(0,0,0,0.1);
+
+}
+
+div.document-widget div.csv {
+
+	position: absolute;
+	left: 0;
+	top: 0;
+	z-index: 50;
+	background-color: rgba(255, 255, 255, 0.4);
+	width: 100%;
+	height: 100%;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	font-size: 35px;
+	text-align: center;
+	transform: scale(0,0);
+	transition: all 200ms;
+	pointer-events: none;
+
+}
+
+div.document-widget.drag-over div.csv {
+
+	transform: scale(1, 1);
+
+}
+
+
+div.address-widget div.info {
+
+	width: calc(100% - 2px);
+	border: 1px solid var(--line-color);
+	border-radius: 4px;
+	overflow: hidden;
+	margin-bottom: var(--padding-width);
+
+}
+
+div.address-widget div.info div.header {
+
+	height: 34px;
+	border-bottom: 1px solid var(--line-color);
+	font-size: 14px;
+	font-weight: bold;
+	letter-spacing: 1px;
+	line-height: 34px;
+	text-indent: 8px;
+	background-color: #efefef;
+
+}
+
+div.address-widget div.info div.body {
+
+	background-color: #fff;
+	padding: 4px;
+	font-size: 14px;
+
+}
+
+div.address-widget div.info div.body div.row {
+
+	display: flex;
+	justify-content: space-between;
+	align-items: center;
+	padding-top: 10px;
+
+}
+
+div.address-widget div.info div.body div.row:last-child {
+
+	padding-bottom: 10px;
+
+}
+
+div.address-widget div.info div.body div.row li.null {
+
+	visibility: hidden;
+	pointer-events: none;
+
+}
+
+div.address-widget div.info div.body div.row li.active {
+
+	box-shadow: rgb(67, 76, 207) 0px 0px 5px 0px inset;
+
+}
+
+div.address-widget div.info div.body div.row li:hover {
+
+	cursor: pointer;
+	background-color: rgba(0,0,0,0.1);
+
+}
+
+div.address-widget div.info div.body div.row li {
+
+	list-style: none;
+	width: 30%;
+	border: 2px solid rgb(51, 51, 51);
+	border-radius: 4px;
+	text-align: center;
+	border-radius: 5px;
+	height: 25px;
+	line-height: 25px;
+
+}
+
+div.address-widget div.info div.body table {
+
+	width: 100%;
+	table-layout: fixed;
+	border-collapse: collapse;
+
+}
+
+div.address-widget div.info div.body table td {
+
+	padding-top: 4px;
+	padding-bottom: 4px;
+
+}
+
+div.address-widget div.info div.body table tr td:first-child {
+
+	width: 90px;
+
+}
+
+div.address-widget div.info div.body table tr td input[type="text"] {
+
+	width: calc(100% - 10px);
+	padding: 4px 0;
+	border: 1px solid #ccc;
+	border-radius: 4px;
+	text-indent: 8px;
+
+}
+
+div.address-widget div.info div.rank {
+
+	width: 100%;
+	height: 40px;
+	display: flex;
+	justify-content: space-between;
+	align-items: center;
+	padding: 10px 0;
+
+}
+
+div.address-widget div.info div.rank div.block {
+
+	width: 30px;
+	height: 30px;
+	display: block;
+	margin: auto;
+	border: 2px solid #333;
+	border-radius: 4px;
+	line-height: 30px;
+	text-align: center;
+	font-size: 15px;
+
+}
+
+div.address-widget div.info div.rank div.block:hover {
+
+	cursor: pointer;
+	background-color: rgba(0,0,0,0.1);
+
+}
+
+div.address-widget div.info div.rank div.block.active {
+
+	box-shadow: inset 0px 0px 5px 0px rgba(67,76,207,1);
+
+}
+
+div.document-widget div.outline {
+
+	width: calc(100% - 2px);
+	height: calc(100% - 2px);
+	border: 1px solid var(--line-color);
+
+}
+
+div.document-widget div.outline div.thead {
+
+	height: 34px;
+	border-bottom: 1px solid var(--line-color);
+	background-color: #efefef;
+
+}
+
+div.document-widget div.outline div.tbody {
+
+	height: calc(100% - 35px);
+	background-color: #fff;
+	overflow-y: scroll;
+
+
+}
+
+div.document-widget div.outline div.thead table {
+
+	width: calc(100% - var(--scroll-width));
+	height: 100%;
+	table-layout: fixed;
+	border-collapse: collapse;
+	font-size: 14px;
+
+}
+
+div.document-widget div.outline div.thead table td {
+
+	border-right: 1px solid var(--line-color);
+
+}
+
+div.document-widget div.outline div.tbody table {
+
+	width: 100%;
+	table-layout: fixed;
+	border-collapse: collapse;
+	font-size: 14px;
+
+}
+
+div.document-widget div.outline div.tbody table td {
+
+	border-right: 1px solid var(--line-color);
+	border-bottom: 1px solid var(--line-color);
+	padding-top: 4px;
+	padding-bottom: 4px;
+
+}
+
+div.document-widget div.outline div.tbody table tr:last-child td {
+
+	border-bottom: none;
+
+}
+
+div.document-widget div.outline div.tbody table tr:nth-child(even) {
+
+	background-color: #f2f2f2;
+
+}
+
+div.document-widget div.outline td input {
+
+	width: calc(100% - 10px);
+
+}
+
+div.document-widget div.outline td.no {
+
+	width: 36px;
+
+}
+
+div.document-widget div.outline td.type {
+
+	width: 40px;
+
+}
+
+div.document-widget div.outline td.code {
+
+	width: 80px;
+
+}
+
+div.document-widget div.outline td.name {
+
+	width: 180px;
+
+}
+
+div.document-widget div.outline td.standard {
+
+	width: 230px;
+
+}
+
+div.document-widget div.outline td.unit {
+
+	width: 50px;
+
+}
+
+div.document-widget div.outline td.count-per-case {
+
+	width: 50px;
+
+}
+
+div.document-widget div.outline td.order-count {
+
+	width: 60px;
+
+}
+
+div.document-widget div.outline td.unit-count {
+
+	width: 60px;
+
+}
+
+div.document-widget div.outline td.sales-tax {
+
+	width: 80px;
+
+}
+
+div.document-widget div.outline td.subtotal {
+
+	width: 90px;
+
+}
+
+div.document-widget div.outline td.base-price {
+
+	width: 60px;
+
+}
+
+div.document-widget div.outline td.sales-price {
+
+	width: 90px;
+
+}
+
+div.document-widget div.outline td.case-price {
+
+	width: 90px;
+
+}
+
+div.document-widget div.outline td.package {
+
+	width: 40px;
+
+}
+
+div.document-widget div.outline td.lot {
+
+	width: 60px;
+
+}
+
+div.document-widget div.outline td.notes {
+
+}
+
+div.document-widget div.outline td.date {
+
+	width: 90px;
+
+}
+
+div.deliver-widget div.totals {
+
+	width: calc(100% - 2px);
+	border: 1px solid var(--line-color);
+	border-radius: 4px;
+	overflow: hidden;
+	min-height: 100px;
+
+}
+
+div.deliver-widget div.totals.drop {
+
+	margin-bottom: 8px;
+	box-shadow: 0 1px 3px rgba(0,0,0,0.16), 0 1px 3px rgba(0,0,0,0.23);
+
+}
+
+div.deliver-widget div.totals div.header {
+
+	height: 34px;
+	border-bottom: 1px solid var(--line-color);
+	line-height: 34px;
+	font-size: 14px;
+	font-weight: bold;
+	text-indent: 8px;
+	letter-spacing: 1px;
+	background-color: #efefef;
+	position: relative;
+
+}
+
+div.deliver-widget div.totals div.header button {
+
+    position: absolute;
+    right: 4px;
+    top: 5px;
+    border: 1px solid #444;
+    border-radius: 8px;
+    padding: 3px 12px;
+    background-color: transparent;
+
+}
+
+div.deliver-widget div.totals div.header button:hover {
+
+    cursor: pointer;
+    background-color: rgba(0,0,0,0.1);
+
+}
+
+
+div.deliver-widget div.totals div.body {
+
+	padding: 4px;
+	background-color: #fff;
+	min-height: 80px;
+
+}
+
+div.deliver-widget div.totals div.body.edi:hover {
+
+	cursor: pointer;
+
+}
+
+div.deliver-widget div.totals div.body.edi input[type="file"] {
+
+	display: none;
+
+}
+
+div.deliver-widget div.totals div.body div.drag-area {
+
+	width: 100%;
+	height: 120px;
+	position: relative;
+
+}
+
+div.deliver-widget div.totals div.body div.drag-area div.cover {
+
+	position: absolute;
+	left: 0;
+	top: 0;
+	background-color: rgba(187, 212, 237, 0.3);
+	width: 100%;
+	height: 100%;
+	border-radius: 4px;
+	transition: all 0.3s cubic-bezier(.25,.8,.25,1);
+
+}
+
+div.deliver-widget div.totals div.body.over div.drag-area div.cover {
+
+	transform: scale(0, 0);
+
+}
+
+div.deliver-widget div.totals div.body.edi * {
+
+	pointer-events: none;
+
+}
+
+div.deliver-widget div.totals div.body div.drag-area div.border {
+
+	position: absolute;
+	width: calc(100% - 16px);
+	height: calc(100% - 16px);
+	border: 2px dashed #7a7a7a;
+	border-radius: 8px;
+	left: 6px;
+	top: 6px;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	flex-direction: column;
+
+}
+
+
+div.deliver-widget div.totals div.body div.drag-area div.border img {
+
+	width: 50px;
+	height: 50px;
+	margin-bottom: 8px;
+	opacity: 0.5;
+
+}
+
+div.deliver-widget div.totals div.body div.drag-area div.border p {
+
+	padding: 0;
+	margin: 0;
+
+}
+
+
+div.deliver-widget div.totals div.body table {
+
+	width: 100%;
+	table-layout: fixed;
+	border-collapse: collapse;
+	font-size: 14px;
+
+}
+
+div.deliver-widget div.totals div.body table tr.fade {
+
+	color: #bbb;
+
+}
+
+div.deliver-widget div.totals div.body table td {
+
+	padding-top: 5px;
+	padding-bottom: 5px;
+
+}
+
+div.deliver-widget div.totals div.body table tr td:last-child {
+
+	text-align: right;
+
+}
+
+div.deliver-widget div.settings {
+
+	box-shadow: 0 1px 3px rgba(0,0,0,0.16), 0 1px 3px rgba(0,0,0,0.23);
+	width: calc(100% - 2px);
+	border: 1px solid var(--line-color);
+	border-radius: 4px;
+	margin-top: var(--padding-width);
+	overflow: hidden;
+
+}
+
+div.deliver-widget div.settings div.header {
+
+	height: 34px;
+	border-bottom: 1px solid var(--line-color);
+	background-color: #efefef;
+	line-height: 34px;
+	text-indent: 8px;
+	font-size: 14px;
+	letter-spacing: 1px;
+	font-weight: bold;
+	position: relative;
+
+}
+
+div.deliver-widget div.settings div.header div.radio {
+
+	position: absolute;
+	right: 4px;
+	top: 0;
+
+}
+
+div.deliver-widget div.settings div.body {
+	
+	padding: 4px;
+	background-color: #fff;
+
+}
+
+div.deliver-widget div.settings div.body table {
+
+	width: 100%;
+	table-layout: fixed;
+	border-collapse: collapse;
+	font-size: 14px;
+
+}
+
+div.deliver-widget div.settings div.body table td {
+
+	padding-top: 4px;
+	padding-bottom: 4px;
+
+
+}
+
+div.deliver-widget div.settings div.body table tr:nth-child(odd) {
+
+}
+
+div.deliver-widget div.settings div.body table tr td:first-child {
+
+	width: 120px;
+
+}
+
+div.deliver-widget div.settings div.body table td input[type="text"] {
+
+	width: calc(100% - 15px);
+	padding-right: 4px;
+	padding-top: 4px;
+	padding-bottom: 4px;
+	border: 1px solid #ccc;
+	border-radius: 4px;
+	margin-left: 4px;
+	text-indent: 8px;
+
+}
+
+div.deliver-widget div.settings div.body table td select {
+
+	width: calc(100% - 15px);
+	padding-right: 4px;
+	padding-top: 4px;
+	padding-bottom: 4px;
+	border: 1px solid #ccc;
+	border-radius: 4px;
+	margin-left: 4px;
+
+}
+
+div.deliver-widget div.settings div.body button.submit {
+
+	width: 80%;
+	border: 1px solid #28a745;
+	color: #fff;
+	background-color: #28a745;
+	padding: 6px 0;
+	border-radius: 10px;
+	margin: 10px auto;
+	display: block;
+
+}
+
+div.deliver-widget div.settings div.body button.submit:hover {
+
+	cursor: pointer;
+	background-color: #218838;
+
+}
+
+div.preview-widget {
+
+	position: absolute;
+	left: var(--fixes-width);
+	top: 0;
+	width: calc(100% - var(--deliver-width) - var(--fixes-width) - 20px);
+	height: 100%;
+	overflow-y: scroll;
+	padding-right: 4px;
+	background-color: #f2f2f2;
+
+	background-image: url('../img/forest_bg.png');
+	background-position: center;
+	background-repeat: no-repeat;
+	background-attachment: fixed;
+
+}
+
+div.preview-widget div.bar {
+
+	width: 100%;
+	padding: 4px 0;
+	background-color: #000;
+	border-radius: 5px;
+	color: #fff;
+	text-indent: 16px;
+	font-size: 15px;
+	margin-bottom: 8px;
+
+}
+
+div.preview-widget div.bar table {
+
+	width: 100%;
+	table-layout: fixed;
+	border-collapse: collapse;
+
+}
+
+div.preview-widget div.bar table td:last-child {
+
+	width: 40px;
+	text-align: center;
+	padding-right: 6px;
+
+}
+
+div.preview-widget li {
+
+	list-style: none;
+	width: calc(100% - 2px);
+	border: 1px solid #333;
+	border-radius: 5px;
+	min-height: 40px;
+	background-color: #efefef;
+	min-height: 40px;
+	margin-bottom: 8px;
+
+}
+
+div.preview-widget li.highlight {
+
+	background-color: #fcf5cf;
+
+}
+
+div.preview-widget li div.top-row {
+
+	padding: 4px;
+
+}
+
+div.preview-widget li div.top-row table {
+
+	width: 100%;
+	table-layout: fixed;
+	border-collapse: collapse;
+	font-size: 14px;
+
+}
+
+
+div.preview-widget li div.top-row table td.value.a {
+
+	width: 90px;
+
+}
+
+div.preview-widget li div.top-row table td.value.d {
+
+	width: 80px;
+
+}
+
+div.preview-widget li div.top-row table td.value.e {
+
+	width: 80px;
+
+}
+
+div.preview-widget li div.top-row table td.value.b {
+
+	width: 80px;
+
+}
+
+div.preview-widget li div.top-row table td.value.c {
+
+	width: 54px;
+
+}
+
+div.preview-widget li div.top-row table td.label {
+
+	font-weight: bold;
+
+}
+
+div.preview-widget li div.top-row table td.label.a {
+
+	width: 64px;
+
+}
+
+div.preview-widget li div.top-row table td.label.b {
+
+	width: 60px;
+
+}
+
+div.preview-widget li div.top-row table td.label.c {
+
+	width: 80px;
+
+}
+
+div.preview-widget li div.top-row table td.label.d {
+
+	width: 120px;
+
+}
+
+div.preview-widget li div.top-row table td.label.e {
+
+	width: 120px;
+
+}
+
+div.preview-widget li div.top-row table td.label.f {
+
+	width: 160px;
+
+}
+
+div.preview-widget li div.top-row table td.value.f {
+	
+	width: 120px;
+
+}
+
+div.preview-widget li div.top-row table td.fixed {
+
+	width: 70px;
+	text-align: center;
+
+}
+
+div.preview-widget li div.top-row table td.fixed span {
+
+	font-size: 12px;
+	color: #2d61bc;
+	font-weight: bold;
+	border: 1px solid #2d61bc;
+	border-radius: 6px;
+	padding: 2px 4px;
+
+}
+
+div.preview-widget li div.top-row table td.fixed span:hover {
+
+	cursor: pointer;
+	background-color: #fff;
+
+}
+
+div.preview-widget li div.top-row table td.checkbox {
+
+	width: 40px;
+	text-align: center;
+
+}
+
+div.preview-widget li div.shipping {
+
+	padding-bottom: 5px;
+	padding-left: 5px;
+	padding-right: 5px;
+
+}
+
+div.preview-widget li div.shipping table {
+
+	width: 100%;
+	table-layout: fixed;
+	border-collapse: collapse;
+	font-size: 15px;
+
+}
+
+div.preview-widget li div.shipping table td {
+
+	padding-top: 4px;
+	padding-bottom: 4px;
+	font-size: 14px;
+
+}
+
+div.preview-widget li div.shipping table td.label {
+
+	font-weight: bold;
+	width: 160px;
+	background-color: #f4eeeb;
+	border-right: 1px solid #9a9a9a;
+	border-bottom: 1px solid #9a9a9a;
+
+}
+
+div.preview-widget li div.shipping table tr td:first-child {
+
+	border-left: 1px solid #9a9a9a;
+
+}
+
+div.preview-widget li div.shipping table tr:first-child td {
+
+	border-top: 1px solid #9a9a9a;
+
+}
+
+div.preview-widget li div.shipping table td.value {
+
+	background-color: #fff;
+	border-right: 1px solid #9a9a9a;
+	border-bottom: 1px solid #9a9a9a;
+
+}
+
+div.preview-widget li div.shipping table td.value.a {
+
+	width: 120px;
+
+}
+
+div.preview-widget li div.shipping table td.value.c {
+	
+	width: 80px;
+
+}
+
+div.preview-widget li div.shipping table td.value.d {
+
+	width: 80px;
+
+}
+
+div.preview-widget li div.shipping table td.value.c input {
+
+	text-align: right;
+
+}
+
+div.preview-widget li div.shipping table td.value.d input {
+
+	text-align: right;
+
+}
+
+div.preview-widget li div.products {
+
+	padding-left: 5px;
+	padding-right: 5px;
+	padding-bottom: 5px;
+
+}
+
+div.preview-widget li div.products table {
+
+	width: 100%;
+	table-layout: fixed;
+	border-collapse: collapse;
+
+}
+
+div.preview-widget li div.products table tr:first-child th {
+
+	border-top: 1px solid #9a9a9a;
+
+}
+
+div.preview-widget li div.products table th {
+
+	background-color: #f4eeeb;
+	border-bottom: 1px solid #9a9a9a;
+	border-right: 1px solid #9a9a9a;
+	font-size: 14px;
+	padding-top: 5px;
+	padding-bottom: 5px;
+	text-align: center;
+
+}
+
+div.preview-widget li div.products table th.a {
+
+	width: 30px;
+
+}
+
+div.preview-widget li div.products table th.b {
+
+	width: 65px;
+
+}
+
+div.preview-widget li div.products table th.d {
+
+	width: 90px;
+
+}
+
+div.preview-widget li div.products table th.e {
+
+	width: 90px;
+
+}
+
+div.preview-widget li div.products table th.f {
+
+	width: 90px;
+
+}
+
+div.preview-widget li div.products table th.g {
+
+	width: 80px;
+
+}
+
+div.preview-widget li div.products table th.h {
+
+	width: 60px;
+
+}
+
+div.preview-widget li div.products table th.i {
+
+	width: 60px;
+
+}
+
+div.preview-widget li div.products table th.j {
+
+	width: 100px;
+
+}
+
+div.preview-widget li div.products table th.k {
+
+	width: 80px;
+
+}
+
+div.preview-widget li div.products table th.l {
+
+	width: 60px;
+
+}
+
+div.preview-widget li div.products table th span.tip {
+
+	cursor: help;
+	position: relative;
+
+}
+
+div.preview-widget li div.products table th span.tip i {
+
+	font-style: normal;
+	position: absolute;
+	right: -15px;
+	top: -3px;
+	font-size: 8px;
+	width: 14px;
+	height: 14px;
+	border-radius: 100%;
+	text-align: center;
+	line-height: 16px;
+	background-color: rgba(0,0,0,0.5);
+	color: #fff;
+	pointer-events: none;
+
+}
+
+div.preview-widget li div.products table th span.tip.price:before {
+
+	content : "順番 : マスター・EDI";
+	width: 150px;
+
+}
+
+div.preview-widget li div.products table th span.tip.color:before {
+
+	content : "数量単位の場合もある";
+	width: 150px;
+
+}
+
+div.preview-widget li div.products table th span.tip:before {
+
+	position: absolute;
+	left: 0;
+	bottom: calc(100% + 10px);
+	background-color: rgba(0,0,0,0.7);
+	padding: 4px;
+	border-radius: 5px;
+	color: #fff;
+	font-size: 13px;
+	text-indent: 4px;
+	font-weight: 400;
+	cursor: default;
+	
+	transform: translateY(10px);
+	opacity: 0;
+	transition: transform 200ms, opacity 200ms;
+
+}
+
+div.preview-widget li div.products table th span.tip:after {
+	
+	content: "";
+	display: block;
+	position: absolute;
+	bottom: 100%;
+	left: 10px;
+
+	width: 0; 
+	height: 0; 
+	border-left: 10px solid transparent;
+	border-right: 10px solid transparent;
+	border-top: 10px solid rgba(0,0,0,0.7);
+	cursor: default;
+
+	transform: translateY(10px);
+	opacity: 0;
+	transition: transform 200ms, opacity 200ms;
+
+}
+
+div.preview-widget li div.products table th span.tip:hover:before,
+div.preview-widget li div.products table th span.tip:hover:after {
+
+	transform: translateY(0px);
+	opacity: 1;
+
+
+}
+
+div.preview-widget li div.products table tr.dash th {
+
+	border-bottom: none;
+	position: relative;
+
+}
+
+div.preview-widget li div.products table tr.dash th:after {
+
+	content: "";
+	display: block;
+	position: absolute;
+	top: calc(100% - 1px);
+	border-bottom: 1px dashed #9a9a9a;
+	width: calc(100% - 4px);
+	left: 2px;
+
+}
+
+div.preview-widget li div.products table tr.dash th:before {
+
+	content: "";
+	display: block;
+	position: absolute;
+	top: 0;
+	left: 100%;
+	border-right: 1px solid #9a9a9a;
+	height: 100%;
+
+}
+
+div.preview-widget li div.products table tr.dash th.a {
+
+	width: 120px;
+
+}
+
+div.preview-widget li div.products table tr.dash th.b {
+
+	width: 110px;
+
+}
+
+div.preview-widget li div.products table tr.dash th.c {
+
+	width: 110px;
+
+}
+
+div.preview-widget li div.products table tr.dash th.e {
+
+	width: 120px;
+
+}
+
+div.preview-widget li div.products table tr.dash th.f {
+
+	width: 120px;
+
+}
+
+div.preview-widget li div.products table tr.dash th.g {
+
+	width: 190px;
+
+}
+
+div.preview-widget li div.products table tr.dash th.h {
+
+	width: 120px;
+
+}
+
+div.preview-widget li div.products table td {
+
+	background-color: #fff;
+	padding-top: 4px;
+	padding-bottom: 4px;
+	font-size: 14px;
+	border-right: 1px solid #9a9a9a;
+	border-bottom: 1px solid #9a9a9a;
+
+}
+
+div.preview-widget li div.products table td.l input {
+
+	width: calc(100% - 10px);
+	display: block;
+	margin: auto;
+	border: 1px solid rgba(21, 67, 165, 0.4);
+	text-align: center;
+	border-radius: 4px;
+
+}
+
+div.preview-widget li div.products table td.error {
+
+	background-color: #fcdedf !important;
+
+}
+
+div.preview-widget li div.products table td.warn {
+
+	background-color: #fbfce8 !important;
+
+}
+
+div.preview-widget li div.products table td.k input {
+
+	text-align: right;
+
+}
+
+div.preview-widget li div.products table td label {
+
+	width: 100%;
+	display: inline-block;
+
+}
+
+div.preview-widget li div.products table td label input[type="radio"] {
+
+	margin: 0;
+	
+}
+
+div.preview-widget li div.products table td label input[type="text"] {
+
+	width: calc(100% - 20px);
+	text-align: right;
+
+}
+
+div.preview-widget li div.products table td.error {
+
+	background-color: #fcdedf !important;
+
+}
+
+div.preview-widget li div.products table td.warn {
+
+	background-color: #fbfce8 !important;
+
+}
+
+div.preview-widget li div.products table td.edit {
+
+	background-color: #f2fcf3 !important;
+
+}
+
+div.preview-widget li div.products table tr.even td {
+
+	background-color: #f2f2f2;
+
+}
+
+div.preview-widget li div.products table tr.dash td {
+
+	border-bottom: none;
+	position: relative;
+
+}
+
+div.preview-widget li div.products table tr.dash td:before {
+
+	content: "";
+	display: block;
+	position: absolute;
+	top: 0;
+	left: 100%;
+	border-right: 1px solid #9a9a9a;
+	height: 100%;
+
+}
+
+div.preview-widget li div.products table tr.dash td:after {
+
+	content: "";
+	display: block;
+	position: absolute;
+	top: calc(100% - 1px);
+	border-bottom: 1px dashed #9a9a9a;
+	width: calc(100% - 4px);
+	left: 2px;
+
+}
+
+div.preview-widget li div.products table tr th:first-child,
+div.preview-widget li div.products table tr td:first-child {
+
+	border-left: 1px solid #9a9a9a;
+
+}
+
+div.preview-widget ul {
+
+	padding: 0;
+	margin: 0;
+
+	padding-left: 4px;
+	padding-right: 4px;
+	padding-top: 4px;
+	padding-bottom: 4px;
+
+}
+
+div.preview-widget li input[type="text"] {
+
+	width: calc(100% - 8px);
+
+}
+
+div.preview-widget li input[type="text"][readonly="readonly"] {
+
+	border: none;
+	background-color: transparent;
+
+}
+
+div.preview-widget li input[type="text"]:disabled {
+
+	opacity: 0.5;
+
+}
+
+div.preview-widget li table td.f input[type="text"] {
+
+	border: 1px solid rgba(21, 67, 165, 0.4);
+	width: calc(100% - 10px);
+	display: block;
+	margin: auto;
+	text-align: center;
+	border-radius: 4px;
+
+}
+
+div.preview-widget li table td.f input[type="text"][readonly="readonly"] {
+
+	border-color: transparent;
+
+}
+
+div.preview-widget li input[type="text"][readonly="readonly"].hover:hover {
+
+	cursor: pointer;
+	background-color: rgba(0,0,0,0.1);
+	border-radius: 5px;
+
+}
+
+div.deliver-widget div.csv {
+	
+	box-shadow: 0 1px 3px rgba(0,0,0,0.16), 0 1px 3px rgba(0,0,0,0.23);
+	width: calc(100% - 2px);
+	border: 1px solid var(--line-color);
+	border-radius: 4px;
+	margin-top: var(--padding-width);
+	overflow: hidden;
+	height: calc(100% - 404px);
+
+}
+
+div.deliver-widget div.csv div.header {
+
+	height: 34px;
+	border-bottom: 1px solid var(--line-color);
+	background-color: #efefef;
+	line-height: 34px;
+	text-indent: 8px;
+	font-size: 14px;
+	letter-spacing: 1px;
+	font-weight: bold;
+
+}
+
+div.deliver-widget div.csv textarea.preview {
+
+	padding: 0px 4px;
+	margin: 0;
+	outline: none;
+	border: none;
+	overflow: auto;
+	height: calc(100% - 35px);
+	width: calc(100% - 8px);
+	resize: none;
+	font-size: 14px;
+
+}
+
+div.fixes-widget {
+
+	left: 0;
+	top: 0;
+	height: 100%;
+	width: calc(var(--fixes-width) - 2px);
+	background-color: rgba(0,0,0,0.2);
+	position: fixed;
+	border-right: 2px solid #444;
+
+}
+
+div.fixes-widget div.header {
+
+	width: 100%;
+	height: 40px;
+	background-color: #3e4249;
+	color: #fff;
+	text-indent: 8px;
+	line-height: 40px;
+	font-size: 14px;
+	letter-spacing: 1px;
+
+}
+
+div.fixes-widget div.body {
+
+	height: calc(100% - 40px);
+	overflow-y: scroll;
+	overflow-x: hidden;
+
+}
+
+div.fixes-widget div.body {
+
+
+}
+
+div.fixes-widget div.body ul {
+
+	padding: 0;
+	margin: 0;
+
+}
+
+div.fixes-widget div.body li {
+
+	list-style: none;
+	width: calc(100% - 10px);
+	border: 1px solid #444;
+	border-radius: 8px;
+	display: block;
+	margin: auto;
+	margin-top: 5px;
+	min-height: 90px;
+	background-color: #fff;
+	font-family: monospace;
+	overflow: hidden;
+
+}
+
+div.fixes-widget div.body li:last-child {
+
+	margin-bottom: 5px;
+
+}
+
+div.fixes-widget div.body li div.row.pad {
+
+	padding-top: 4px;
+
+}
+
+div.fixes-widget div.body li div.meta {
+
+	background-color: #efefef;
+	border-bottom: 1px solid #ccc;
+	padding: 10px 8px;
+
+}
+
+div.fixes-widget div.body li div.meta div.row table {
+
+	width: 100%;
+	table-layout: fixed;
+	border-collapse: collapse;
+	font-size: 14px;
+
+}
+
+div.fixes-widget div.body li div.meta div.row table td.label {
+
+	font-weight: bold;
+
+}
+
+div.fixes-widget div.body li div.meta div.row table td.label.a {
+
+	width: 60px;
+
+}
+
+div.fixes-widget div.body li div.meta div.row table td.label.b {
+
+	width: 60px;
+
+}
+
+div.fixes-widget div.body li div.meta div.row table td.label.c {
+
+	width: 100px;
+
+}
+
+div.fixes-widget div.body li div.meta div.row table td.label.d {
+
+	width: 74px;
+
+}
+
+div.fixes-widget div.body li div.meta div.row table td.label.e,
+div.fixes-widget div.body li div.meta div.row table td.label.f {
+
+	width: 80px;
+
+}
+
+div.fixes-widget div.body li div.meta div.row table td.label.g {
+
+	width: 200px;
+
+}
+
+div.fixes-widget div.body li div.meta div.row table td.value.fixed {
+
+	width: 44px;
+
+}
+
+div.fixes-widget div.body li div.meta div.row table td.value.b,
+div.fixes-widget div.body li div.meta div.row table td.value.c {
+
+	width: 80px;
+
+}
+
+div.fixes-widget div.body li div.meta div.row table td.fix {
+
+	width: 90px;
+	text-align: right;
+	font-weight: bold;
+	color: #0f48aa;
+}
+
+div.fixes-widget div.body li div.meta div.row table td.fix span:hover {
+
+	cursor: pointer;
+	text-decoration: underline;
+
+}
+
+
+div.fixes-widget div.body li div.table {
+
+	padding: 8px;
+	padding-bottom: 0;
+
+}
+
+div.fixes-widget div.body li div.table:last-child {
+
+	padding-bottom: 8px;
+
+}
+
+div.fixes-widget div.body li div.table table {
+
+	width: 100%;
+	table-layout: fixed;
+	border-collapse: collapse;
+	font-size: 14px;
+
+}
+
+div.fixes-widget div.body li div.table table th.label {
+
+	background-color: rgb(244, 238, 235);
+	text-align: center;
+
+}
+
+div.fixes-widget div.body li div.table table th.label.a {
+
+	width: 90px;
+	
+}
+
+div.fixes-widget div.body li div.table table th.label.c {
+
+	width: 50px;
+
+}
+
+div.fixes-widget div.body li div.table table th.label.d {
+
+	width: 50px;
+
+}
+
+div.fixes-widget div.body li div.table table th.label.e {
+
+	width: 50px;
+
+}
+
+div.fixes-widget div.body li div.table table td.va {
+
+	text-align: center;
+
+}
+
+div.fixes-widget div.body li div.table table td.vb {
+
+	text-indent: 4px;
+	overflow: hidden;
+	text-overflow: ellipsis;
+	white-space: nowrap;
+
+}
+
+div.fixes-widget div.body li div.table table td.vc,
+div.fixes-widget div.body li div.table table td.vd,
+div.fixes-widget div.body li div.table table td.ve {
+
+	padding-right: 4px;
+	text-align: right;
+
+}
+
+div.fixes-widget div.body li div.table table td {
+
+	padding-top: 2px;
+	padding-bottom: 2px;
+	overflow: hidden;
+	text-overflow: ellipsis;
+	white-space: nowrap;
+
+}
+
+div.fixes-widget div.body li div.table table td.label {
+
+	width: 150px;
+	text-indent: 5px;
+	background-color: rgb(244, 238, 235);
+
+}
+
+div.fixes-widget div.body li div.table table td.value {
+
+	text-indent: 5px;
+	overflow: hidden;
+	text-overflow: ellipsis;
+	white-space: nowrap;
+
+}
+
+div.fixes-widget div.body li div.footer {
+
+	background-color: #efefef;
+	border-top: 1px solid #ccc;
+	padding: 10px 8px;
+	margin-top: 8px;
+
+}
+
+div.fixes-widget div.body li div.footer table tr:first-child td {
+
+	border-top: 1px solid #9a9a9a;
+
+}
+
+div.fixes-widget div.body li div.footer table tr:nth-child(odd) td {
+
+
+}
+
+div.fixes-widget div.body li div.footer table td.label.a {
+
+	width: 54px;
+	text-align: right;
+
+}
+
+div.fixes-widget div.body li div.footer table td.label.b {
+
+	text-indent: 4px;
+	width: 160px;
+	border-right: 1px solid #9a9a9a;
+	border-bottom: 1px solid #9a9a9a;
+	border-left: 1px solid #9a9a9a;
+
+}
+
+div.fixes-widget div.body li div.footer table td.value {
+
+	text-indent: 4px;
+	border-right: 1px solid #9a9a9a;
+	border-bottom: 1px solid #9a9a9a;
+
+}
+
+
+div.fixes-widget div.body li div.footer table {
+
+	width: 100%;
+	table-layout: fixed;
+	border-collapse: collapse;
+	font-size: 14px;
+
+}
+
+div.preview-widget div.reset {
+
+	border-top: 1px dashed #ccc;
+	padding-top: 10px;
+
+}
+
+div.preview-widget div.reset.hide {
+
+	display: none;
+
+}
+
+div.preview-widget div.reset div.back {
+
+	width: 80px;
+	border: 1px solid #888;
+	float: right;
+	margin-right: 8px;
+	border-radius: 5px;
+	text-align: center;
+	position: relative;
+	text-align: right;
+	padding-right: 10px;
+	background-color: #f7f3c3;
+
+}
+
+div.preview-widget div.reset div.back img {
+
+	position: absolute;
+	left: 4px;
+	top: 2px;
+	width: 20px;
+
+}
+
+div.preview-widget div.reset div.back:hover {
+
+	cursor: pointer;
+	box-shadow: 0 1px 3px rgba(0,0,0,0.16), 0 1px 3px rgba(0,0,0,0.23);
+
+}
+
+
+div.fixes-widget div.header table {
+
+	width: 100%;
+	height: 100%;
+	table-layout: fixed;
+	border-collapse: collapse;
+
+}
+
+div.fixes-widget div.header table td.txt {
+
+	text-indent: 4px;
+
+}
+
+div.fixes-widget div.header table td.sel {
+
+	width: 110px;
+
+}
+
+div.fixes-widget div.header table td.sel select {
+
+	width: 98%;
+	display: block;
+	margin: auto;
+	border-radius: 4px;
+	padding: 2px 0;
+	border: 1px solid #333;
+	font-size: 14px;
+
+}
+
+div.fixes-widget div.header table td.ipt {
+
+	width: 120px;
+
+}
+
+div.fixes-widget div.header table td.ipt input {
+
+	width: 96%;
+	display: block;
+	margin: auto;
+	border: 1px solid #333;
+	border-radius: 10px;
+	text-indent: 10px;
+	background-color: #fff;
+	padding: 4px 0;
+
+}
+
+div.fixes-widget div.header table td.btn {
+
+	width: 60px;
+
+}
+
+div.fixes-widget div.header table td.btn button {
+
+	width: 90%;
+	display: block;
+	margin: auto;
+	border: 1px solid #333;
+	border-radius: 10px;
+	padding: 2px 0;
+
+}
+
+div.fixes-widget div.header table td.btn button:hover {
+
+	cursor: pointer;
+	color: #fff;
+	background-color: #ff4500;
+
+}
+

@@ -1,0 +1,710 @@
+html {
+
+	padding: 0;
+	margin: 0;
+	height: 100%;
+
+}
+
+body {
+
+	padding: 0;
+	margin: 0;
+	height: 100%;
+	--header-height: 0px;
+
+}
+
+header {
+
+	position: fixed;
+	height: var(--header-height);
+	left: 0;
+	top: 0;
+	width: 100%;
+	background-color: #37474F;
+	z-index: 100;
+	box-shadow: 0 3px 6px rgba(0,0,0,0.16), 0 3px 6px rgba(0,0,0,0.23);
+
+
+}
+
+header table {
+
+	width: 100%;
+	height: 100%;
+	table-layout: fixed;
+	border-collapse: collapse;
+
+}
+
+div.main-logo {
+
+	background-image: url('../img/LogoTransparencyIndexed.png');
+	background-size: contain;
+	background-position: center;
+	background-repeat: no-repeat;
+	width: 500px;
+	height: 200px;
+	display: block;
+	margin: auto;
+	margin-top: 50px;
+	position: relative;
+	z-index: 100;
+
+}
+
+header h1 {
+
+	padding: 0;
+	margin: 0;
+	color: #fff;
+	font-size: 18px;
+	letter-spacing: 1px;
+	text-indent: 8px;
+	font-weight: 400;
+	font-family: 'Montserrat', sans-serif;
+	font-size: 24px;
+	font-weight: 400;
+
+}
+
+section div.form div.msg {
+
+	height: 24px;
+	line-height: 24px;
+	font-size: 14px;
+	text-align: center;
+	color: #f00;
+	pointer-events: none;
+	opacity: 0;
+	transition: opacity 200ms;
+
+
+}
+
+section div.form div.msg.show {
+
+	pointer-events: all;
+	opacity: 1;
+
+}
+
+header table td.index {
+
+	width: 120px;
+	border-right: 1px solid #8a8a8a;
+
+}
+
+header table td.session {
+
+	padding-right: 8px;
+	text-align: right;
+	color: #fff;
+	font-size: 15px;
+
+}
+
+header table td.icon {
+
+	width: 50px;
+
+}
+
+header table td.icon img {
+
+	width: 90%;
+	display: block;
+	margin: auto;
+
+}
+
+header table td.link {
+
+	width: 180px;
+	color: #fff;
+	text-indent: 24px;
+	font-size: 14px;
+	border-left: 1px solid #8a8a8a;
+	position: relative;
+
+}
+
+header table td.link.fade {
+
+	opacity: 0.2;
+	pointer-events: none;
+	display: none;
+
+}
+
+header table td.short {
+
+	width: 80px;
+	color: #fff;
+	border-left: 1px solid #8a8a8a;
+	text-align: center;
+
+}
+
+header table td.short:hover {
+
+	background-color: rgba(255, 255, 255, 0.1);
+	cursor: pointer;
+
+}
+
+header table td.index {
+
+	text-indent: 8px;
+	color: #fff;
+	font-size: 15px;
+	display: none;
+
+}
+
+header table td.link:before {
+
+	content: "";
+	display: block;
+	position: absolute;
+	left: 6px;
+	top: 7px;
+	width: 10px;
+	height: calc(100% - 14px);
+	background-color: #85c7e8;
+	border-radius: 8px;
+	opacity: 0;
+
+}
+
+header table td.title {
+
+	width: 280px;
+
+}
+
+header table td.link:hover {
+
+	cursor: pointer;
+	background-color: rgba(255, 255, 255, 0.2);
+
+}
+
+header table td.link:hover:before {
+
+	opacity: 0.5;
+
+}
+
+
+header table td.link.active {
+
+	background-color: rgba(255, 255, 255, 0.18);
+
+}
+
+header table td.link.active:before {
+
+	opacity: 1 !important;
+
+}
+
+section {
+
+	position: fixed;
+	left: 0;
+	top: var(--header-height);
+	width: 100%;
+	height: calc(100% - var(--header-height));
+	
+	/*
+	background-image: url('../img/mat_03.png');
+	background-size: 100% 100%;
+	background-repeat: no-repeat;
+	background-position: center;
+	*/
+
+
+}
+
+section iframe {
+
+	width: 100%;
+	height: 100%;
+	border: 0;
+	padding: 0;
+	position: absolute;
+	left: 0;
+	top: 0;
+	pointer-events: none;
+	z-index: 0;
+
+}
+
+section iframe.active {
+
+	z-index: 10;
+	pointer-events: all;
+
+
+}
+
+section.login {
+
+	z-index: 0;
+	background-color: #1e3966;
+	/*
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	flex-direction: column;
+	*/
+
+}
+
+div.pattern {
+
+	width: 100%;
+	height: 100%;
+	position: fixed;
+	left: 0;
+	top: 0;
+	background-image: url('../img/surface.jpg');
+	background-size: 100% 100%;
+	opacity: 0.1;
+	z-index: 1;
+
+}
+
+section.login.hide {
+
+	display: none;
+
+}
+
+section div.form {
+
+	width: 360px;
+	padding: 50px;
+	border: 2px solid #000;
+	border-radius: 10px;
+	background-color: #fff;
+	display: block;
+	margin: auto;
+	min-height: 100px;
+	box-shadow: 0 3px 6px rgba(0,0,0,0.16), 0 3px 6px rgba(0,0,0,0.23);
+	margin-top: 50px;
+	z-index: 100;
+	position: relative;
+
+}
+
+section div.form h1 {
+
+	padding: 0;
+	margin: 0;
+	font-size: 34px;
+	font-weight: 400;
+	text-align: center;
+	font-family: 'Montserrat', sans-serif;
+
+}
+
+section div.form h2 {
+
+	padding: 0;
+	margin: 0;
+	text-align: center;
+	font-weight: 400;
+
+}
+
+section div.form h3 {
+
+	padding: 0;
+	margin: 0;
+	font-size: 22px;
+	font-weight: 400;
+	margin-top: 20px;
+
+}
+
+section div.form div.input {
+
+	padding-top: 5px;
+	position: relative;
+
+}
+
+section div.form div.input div.icon {
+
+	width: 32px;
+	height: 32px;
+	position: absolute;
+	left: 10px;
+	top: 12px;
+
+	background-size: 95%;
+	background-repeat: no-repeat;
+	background-position: center;
+	opacity: 0.5;
+	pointer-events: none;
+
+}
+
+section div.form div.input div.person {
+
+	background-image: url('../img/person-black-18dp.svg');
+
+}
+
+section div.form div.input div.padlock {
+
+	background-image: url('../img/https-black-18dp.svg');
+
+}
+
+section div.form div.input input {
+
+	width: calc(100% - 10px);
+	border: 1px solid #8a8a8a;
+	padding: 12px 4px;
+	font-size: 16px;
+	border-radius: 8px;
+	text-indent: 8px;
+	font-family: 'Montserrat', sans-serif;
+	text-indent: 40px;
+
+}
+
+section div.form div.input input:focus {
+	
+	border-color: rgba(106,164,212,0.5);
+	box-shadow: 0px 0px 8px 1px rgba(106,164,212,1);
+
+}
+
+section div.form label.remember {
+
+	display: block;
+	margin: 5px 0;
+
+}
+
+section div.form button {
+
+	width: 100%;
+	border: none;
+	border-radius: 5px;
+	font-size: 18px;
+	color: #fff;
+	background-color: #007bff;
+	border-radius: 8px;
+	padding: 12px 0;
+	margin: 24px 0;
+	font-family: 'Montserrat', sans-serif;
+	letter-spacing: 1px;
+	font-weight: bold;
+	background: linear-gradient(90deg, #1DBCE4 0%, rgba(2,125,233,1) 100%);
+
+}
+
+section div.form button:hover {
+
+	background: #0380e9;
+	cursor: pointer;
+
+}
+
+section div.form div.center {
+
+	margin-top: 10px;
+	text-align: center;
+
+}
+
+section div.form div.center span {
+	
+	display: none;
+
+}	
+
+section div.form div.center a {
+
+	font-size: 14px;
+	color: #8a8a8a;
+	display: block;
+
+}
+
+section div.form div.center span.pw:hover {
+
+	cursor: pointer;
+	text-decoration: underline;
+
+}
+
+section div.debug {
+
+	position: absolute;
+	left: 10px;
+	top: 10px;
+	width: 300px;
+	min-height: 120px;
+	padding: 10px;
+	border: 1px solid #444;
+	background-color: #fff;
+	display: none;
+
+}
+
+section div.debug h5 {
+
+	font-size: 22px;
+	padding: 0;
+	margin: 0;
+	padding-bottom: 10px;
+
+}
+
+section div.debug li:hover {
+
+	cursor: pointer;
+	text-decoration: underline;
+
+}
+
+section div.form div.placeholder {
+
+	height: 230px;
+	margin: 20px 0;
+	position: relative;
+
+}
+
+section div.form div.steps {
+
+	height: 30px;
+	width: calc(100% - 40px);
+	display: block;
+	margin: auto;
+	margin-top: 20px;
+	margin-bottom: 20px;
+
+}
+
+section div.form div.steps table {
+
+	width: 100%;
+	height: 100%;
+	table-layout: fixed;
+	border-collapse: collapse;
+
+}
+
+section div.form div.steps table div.circle {
+
+	background-color: rgba(0,0,0,0.2);
+	width: 30px;
+	height: 30px;
+	border-radius: 100%;
+	display: block;
+	margin: auto;
+	transition: color 200ms;
+
+}
+
+section div.form div.steps.step01 table div.circle.step01 {
+
+	background-color: rgba(0,0,0,0.9);
+
+}
+
+section div.form div.steps.step02 table div.circle.step02 {
+
+	background-color: rgba(0,0,0,0.9);
+
+}
+
+section div.form div.steps.step03 table div.circle.step03 {
+
+	background-color: rgba(0,0,0,0.9);
+
+}
+
+section div.form div.steps.step04 table div.circle.step04 {
+
+	background-color: rgba(0,0,0,0.9);
+
+}
+
+section div.form div.placeholder div.steps {
+
+	position: absolute;
+	left: 0;
+	top: 0;
+	width: 100%;
+	height: 100%;
+	display: none;
+
+}
+
+section div.form div.placeholder.step01 div.steps.step01 {
+	display: block;
+}
+
+section div.form div.placeholder.step02 div.steps.step02 {
+	display: block;
+}
+
+section div.form div.placeholder.step03 div.steps.step03 {
+	display: block;
+}
+
+section div.form div.placeholder.step04 div.steps.step04 {
+	display: block;
+}
+
+section div.form div.placeholder div.steps button {
+
+	padding: 4px;
+	font-size: 15px;
+
+}
+
+section div.form div.placeholder div.steps input {
+
+	padding: 8px;
+	font-size: 15px;
+
+}
+
+section div.form div.placeholder div.steps div.squares {
+
+	width: 70%;
+	display: block;
+	margin: auto;
+	height: 44px;
+
+}
+
+section div.form div.placeholder div.steps div.mail {
+
+	width: 100%;
+	height: 70px;
+	background-color: #4f647f;
+	border-radius: 30px;
+	position: relative;
+
+}
+
+section div.form div.placeholder div.steps div.mail img {
+
+	width: 70px;
+	position: absolute;
+	left: 12px;
+	top: 10px;
+	transform: translateX(0px);
+	transition: transform 5000ms ease-in-out;
+
+}
+
+section div.form div.placeholder div.steps div.mail img.send {
+
+	transform: translateX(270px);
+
+}
+
+section div.form div.placeholder div.steps div.squares table {
+
+	width: 100%;
+	table-layout: fixed;
+	border-collapse: collapse;
+	height: 100%;
+
+}
+
+section div.form div.placeholder div.steps div.squares table div.square {
+
+	width: 24px;
+	height: 24px;
+	display: block;
+	margin: auto;
+	background-color: rgba(0,0,0,0.2);
+	border-radius: 5px;
+	transition: all 0.3s cubic-bezier(.25,.8,.25,1);
+
+}
+
+section div.form div.placeholder div.steps h3 {
+
+	margin-top: 10px;
+	font-size: 16px;
+
+}
+
+section div.form.hide {
+
+	display: none;
+
+}
+
+section div.form div.placeholder div.steps div.squares.n01 table div.square.n01 {
+
+	background-color: #347dd1;
+	-webkit-box-shadow: 1px 1px 5px 1px rgba(57,110,209,1);
+	-moz-box-shadow: 1px 1px 5px 1px rgba(57,110,209,1);
+	box-shadow: 1px 1px 5px 1px rgba(57,110,209,1);
+
+}
+
+section div.form div.placeholder div.steps div.squares.n02 table div.square.n02 {
+
+	background-color: #347dd1;
+	-webkit-box-shadow: 1px 1px 5px 1px rgba(57,110,209,1);
+	-moz-box-shadow: 1px 1px 5px 1px rgba(57,110,209,1);
+	box-shadow: 1px 1px 5px 1px rgba(57,110,209,1);
+
+}
+
+section div.form div.placeholder div.steps div.squares.n03 table div.square.n03 {
+
+	background-color: #347dd1;
+	-webkit-box-shadow: 1px 1px 5px 1px rgba(57,110,209,1);
+	-moz-box-shadow: 1px 1px 5px 1px rgba(57,110,209,1);
+	box-shadow: 1px 1px 5px 1px rgba(57,110,209,1);
+
+}
+
+section div.form div.placeholder div.steps div.squares.n04 table div.square.n04 {
+
+	background-color: #347dd1;
+	-webkit-box-shadow: 1px 1px 5px 1px rgba(57,110,209,1);
+	-moz-box-shadow: 1px 1px 5px 1px rgba(57,110,209,1);
+	box-shadow: 1px 1px 5px 1px rgba(57,110,209,1);
+
+}
+
+section div.form div.placeholder div.steps div.squares.n05 table div.square.n05 {
+
+	background-color: #347dd1;
+	-webkit-box-shadow: 1px 1px 5px 1px rgba(57,110,209,1);
+	-moz-box-shadow: 1px 1px 5px 1px rgba(57,110,209,1);
+	box-shadow: 1px 1px 5px 1px rgba(57,110,209,1);
+
+}
+
+div.copyright {
+
+	position: fixed;
+	text-align: center;
+	width: 100%;
+	left: 0;
+	bottom: 40px;
+	color: #fff;
+	font-family: 'Montserrat', sans-serif;
+	font-size: 15px;
+
+}

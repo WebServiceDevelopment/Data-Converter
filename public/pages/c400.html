@@ -1,0 +1,343 @@
+<!doctype html>
+<html>
+	<head>
+		
+		<title>C100</title>
+		<meta charset="utf-8"/>
+		<link rel="stylesheet" type="text/css" href="../css/c400.css"/>
+
+	</head>
+
+	<body>
+
+		<main id="C400.main" style="visibility:hidden">
+
+			<!-- 
+				START ADDRESS WIDGET
+			-->
+
+			<div class="fixes-widget">
+
+				<div class="header">
+
+					<table>
+						<tr>
+							<td class="txt">
+								顧客履歴
+							</td>
+							<td class="sel">
+								<select id="C400.history.select">
+									<option value="order_no">注文No.</option>
+									<option value="customer_no">得意先No.</option>
+								</select>
+							</td>
+							<td class="ipt">
+								<input type="text" placeholder="注文番号" id="C400.history.input"/>
+							</td>
+							<td class="btn">
+								<button id="C400.history.search">検索</button>
+							</td>
+						</tr>
+					</table>
+
+				</div>
+
+				<div class="body">
+
+					<ul id="C400.history.list">
+
+					</ul>
+
+				</div>
+
+			</div>
+
+			<div class="preview-widget">
+
+				<ul id="C400.edi.preview">
+
+				</ul>
+
+				<div class="reset hide" id="C400.history.reset">
+
+					<div class="back" id="C400.history.back">
+						<img src="../img/arrow-back.svg"/>戻る
+					</div>
+				
+				</div>
+
+
+			</div>
+
+			<!--
+				START DELIVER WIDGET
+			-->
+
+			<div class="deliver-widget">
+
+				<div class="totals drop">
+
+					<div class="header">
+
+						EDI PDF ( 内海 ) *.pdf
+						<button class='over' style='display: none'; id='C400.edi.download'>Download</button>
+						<button id='C400.edi.clear'>Clear</button>
+
+					</div>
+
+					<div class="body edi" id="C400.edi.pdf">
+
+						<div class="drag-area">
+
+							<div class="cover"></div>
+
+							<div class="border">
+								
+								<img class="down" src="../img/down.svg"/>
+
+								<p>
+									<b>Choose a file</b> or drag it here
+								</p>
+
+							</div>
+
+						</div>
+
+						<input id="C400.edi.file" type="file" accept=".pdf"/>
+
+					</div>
+
+				</div>
+
+				<!-- START TOTALS -->
+				
+				<!-- 
+				<div class="totals">
+
+					<div class="header">
+						受注合計
+					</div>
+
+					<div class="body">
+						<table>
+							<tr>
+								<td>小計</td>
+								<td>00.00円</td>
+							</tr>
+							<tr>
+								<td>送料</td>
+								<td>00.00円</td>
+							</tr>
+							<tr class="fade">
+								<td>消費税(8%)</td>
+								<td>00.00円</td>
+							</tr>
+							<tr>
+								<td>消費税(10%)</td>
+								<td>00.00円</td>
+							</tr>
+							<tr>
+								<td>合計</td>
+								<td>00.00円</td>
+							</tr>
+						</table>
+					</div>
+
+				</div>
+				-->
+
+				<!-- END TOTALS -->
+
+				<div class="csv">
+					
+					<div class="header">
+						CSV Preview
+					</div>
+
+					<textarea id="C400.edi.textarea" placeholder="CSV" class="preview"></textarea>
+
+				</div>
+
+				<!-- START CONFIRM -->
+
+				<div class="settings">
+
+					<div class="header">
+						CSV書き出し
+
+						<div class="radio">
+
+						</div>
+
+					</div>
+
+					<div class="body">
+
+						<li>
+							<table>
+								<tr class="line">
+									<td class="label">文字コード</td>
+									<td>
+
+										<label>
+											<input type="radio" 
+												name="encoding" 
+												checked 
+												id="C400.edi.sjis"/>
+											SJIS
+										</label>
+
+									</td>
+									<td>
+
+										<label>
+											<input type="radio" 
+												name="encoding" 
+												id="C400.edi.utf8"/>
+											UTF8
+										</label>
+
+									</td>
+								</tr>
+
+								<tr class="line hide">
+									<td class="label">スキーマの有無</td>
+									<td>
+
+										<label>
+											<input type="radio" 
+												name="comments" 
+												id="C400.edi.yes_comments"/>
+											スキーマを含む
+										</label>
+
+									</td>
+									<td>
+
+										<label>
+											<input type="radio" 
+												name="comments" 
+												id="C400.edi.no_comments"
+												checked 
+												/>
+											スキーマを含まない
+										</label>
+
+									</td>
+								</tr>
+
+								<tr class="line hide">
+									<td class="label">CSV形式</td>
+									<td>
+
+										<label>
+											<input type="radio" 
+												name="format" 
+												checked 
+												id="C400.edi.fmt_send"/>
+											送状形式
+										</label>
+
+									</td>
+									<td>
+
+										<label>
+											<input type="radio" 
+												name="format" 
+												id="C400.edi.fmt_wsd"/>
+											WSD形式
+										</label>
+
+									</td>
+								</tr>
+
+								<tr>
+									<td class="label">自社コード</td>
+									<td>
+
+										<label>
+											<input type="radio" 
+												name="skip_comments" 
+												checked 
+												id="C400.edi.no_skip"/>
+											自社コードのない明細を含む
+										</label>
+
+									</td>
+									<td>
+
+										<label>
+											<input type="radio" 
+												name="skip_comments" 
+												id="C400.edi.yes_skip"/>
+											自社コードのない明細を含まない
+										</label>
+
+									</td>
+								</tr>
+
+								<tr>
+									<td class="label">Filename</td>
+									<td colspan="2">
+
+										<input type="text" 
+											id="C400.edi.filename"
+											placeholder="filename"
+											/>
+
+									</td>
+								</tr>
+
+							</table>
+						</li>
+						
+						<table class='no-pad'>
+							<tr>
+								<td>
+									<button id="C400.edi.fixed" class='submit'>確定</button>
+								</td>
+								<td>
+									<button class="submit" id="C400.edi.csv">
+										CSV 書き出し
+									</button>
+								</td>
+							</tr>
+						</table>
+
+					</div>
+
+				</div>
+
+				<!-- END SETTINGS -->
+
+			</div>
+
+			<!--
+				END DELIVER WIDGET
+			-->
+
+		</main>
+
+<script type="text/javascript" src="../lib/str_utils.js"></script>
+<script type="text/javascript" src="../lib/moment.js"></script>
+<script type="text/javascript" src="../lib/pdf.js"></script>
+<script type="text/javascript" src="../lib/jszip.min.js"></script>
+<script type="text/javascript" src="../lib/encoding.js"></script>
+<script type="text/javascript" src="../lib/FileSaver.js"></script>
+<script type="text/javascript" src="../lib/getFormatPhone.js"></script>
+<script type="text/javascript" src="../lib/spark-md5.min.js"></script>
+<script type="text/javascript" src="../lib/ScrollWidth.js"></script>
+<script type="module" src="../js/c400_api_analysisPdfText.js"></script>
+<script type="module" src="../js/c400_api_pdf.js"></script>
+<script type="module" src="../js/c400_api_io.js"></script>
+<script type="module" src="../js/c400_api_fixes.js"></script>
+<script type="module" src="../js/c400_api_products.js"></script>
+<script type="module" src="../js/c400_api_order.js"></script>
+<script type="module" src="../js/c400_api_format.js"></script>
+<script type="module" src="../js/c400_api_history.js"></script>
+<script type="module" src="../js/c400_api_module.js"></script>
+<script type="module" src="../js/c400.js"></script>
+
+	</body>
+
+</html>

@@ -1,0 +1,2340 @@
+html {
+
+	height: 100%;
+	padding: 0;
+	margin: 0;
+
+}
+
+body {
+
+	height: 100%;
+	padding: 0;
+	margin: 0;
+	background-color: #fff;
+	overflow: hidden;
+
+}
+
+main {
+
+	width: 100%;
+	height: 100%;
+
+	--address-width: 420px;
+	--deliver-width: 24%;
+	--padding-width: 8px;
+	--line-color: #444;
+
+	--fixes-width: calc(200px + 10%);
+	--label-color : #374354;
+	--label-font-size : 13px;
+}
+
+div.address-widget {
+
+	position: absolute;
+	left: var(--padding-width);
+	top: var(--padding-width);
+	width: var(--address-width);
+	height: calc(100% - var(--padding-width) * 2);
+
+}
+
+div.deliver-widget {
+
+	position: absolute;
+	right: var(--padding-width);
+	top: var(--padding-width);
+	width: var(--deliver-width);
+	height: calc(100% - var(--padding-width) * 2);
+
+}
+
+div.document-widget.drag-over div.outline {
+
+	pointer-events: none;
+
+}
+
+div.document-widget {
+
+	position: absolute;
+	left: calc(var(--address-width) + 2 * var(--padding-width));
+	top: var(--padding-width);
+	height: calc(100% - var(--padding-width) * 2);
+	width: calc(100% - var(--address-width) - var(--deliver-width) - var(--padding-width) * 4);
+	background-color: rgba(0,0,0,0.1);
+
+}
+
+div.document-widget div.csv {
+
+	position: absolute;
+	left: 0;
+	top: 0;
+	z-index: 50;
+	background-color: rgba(255, 255, 255, 0.4);
+	width: 100%;
+	height: 100%;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	font-size: 35px;
+	text-align: center;
+	transform: scale(0,0);
+	transition: all 200ms;
+	pointer-events: none;
+
+}
+
+div.document-widget.drag-over div.csv {
+
+	transform: scale(1, 1);
+
+}
+
+
+div.address-widget div.info {
+
+	width: calc(100% - 2px);
+	border: 1px solid var(--line-color);
+	border-radius: 4px;
+	overflow: hidden;
+	margin-bottom: var(--padding-width);
+
+}
+
+div.address-widget div.info div.header {
+
+	height: 34px;
+	border-bottom: 1px solid var(--line-color);
+	font-size: 14px;
+	font-weight: bold;
+	letter-spacing: 1px;
+	line-height: 34px;
+	text-indent: 8px;
+	background-color: #efefef;
+
+}
+
+div.address-widget div.info div.body {
+
+	background-color: #fff;
+	padding: 4px;
+	font-size: 14px;
+
+}
+
+div.address-widget div.info div.body div.row {
+
+	display: flex;
+	justify-content: space-between;
+	align-items: center;
+	padding-top: 10px;
+
+}
+
+div.address-widget div.info div.body div.row:last-child {
+
+	padding-bottom: 10px;
+
+}
+
+div.address-widget div.info div.body div.row li.null {
+
+	visibility: hidden;
+	pointer-events: none;
+
+}
+
+div.address-widget div.info div.body div.row li.active {
+
+	box-shadow: rgb(67, 76, 207) 0px 0px 5px 0px inset;
+
+}
+
+div.address-widget div.info div.body div.row li:hover {
+
+	cursor: pointer;
+	background-color: rgba(0,0,0,0.1);
+
+}
+
+div.address-widget div.info div.body div.row li {
+
+	list-style: none;
+	width: 30%;
+	border: 2px solid rgb(51, 51, 51);
+	border-radius: 4px;
+	text-align: center;
+	border-radius: 5px;
+	height: 25px;
+	line-height: 25px;
+
+}
+
+div.address-widget div.info div.body table {
+
+	width: 100%;
+	table-layout: fixed;
+	border-collapse: collapse;
+
+}
+
+div.address-widget div.info div.body table td {
+
+	padding-top: 4px;
+	padding-bottom: 4px;
+
+}
+
+div.address-widget div.info div.body table tr td:first-child {
+
+	width: 90px;
+
+}
+
+div.address-widget div.info div.body table tr td input[type="text"] {
+
+	width: calc(100% - 10px);
+	padding: 4px 0;
+	border: 1px solid #ccc;
+	border-radius: 4px;
+	text-indent: 8px;
+
+}
+
+div.address-widget div.info div.rank {
+
+	width: 100%;
+	height: 40px;
+	display: flex;
+	justify-content: space-between;
+	align-items: center;
+	padding: 10px 0;
+
+}
+
+div.address-widget div.info div.rank div.block {
+
+	width: 30px;
+	height: 30px;
+	display: block;
+	margin: auto;
+	border: 2px solid #333;
+	border-radius: 4px;
+	line-height: 30px;
+	text-align: center;
+	font-size: 15px;
+
+}
+
+div.address-widget div.info div.rank div.block:hover {
+
+	cursor: pointer;
+	background-color: rgba(0,0,0,0.1);
+
+}
+
+div.address-widget div.info div.rank div.block.active {
+
+	box-shadow: inset 0px 0px 5px 0px rgba(67,76,207,1);
+
+}
+
+div.document-widget div.outline {
+
+	width: calc(100% - 2px);
+	height: calc(100% - 2px);
+	border: 1px solid var(--line-color);
+
+}
+
+div.document-widget div.outline div.thead {
+
+	height: 34px;
+	border-bottom: 1px solid var(--line-color);
+	background-color: #efefef;
+
+}
+
+div.document-widget div.outline div.tbody {
+
+	height: calc(100% - 35px);
+	background-color: #fff;
+	overflow-y: scroll;
+
+
+}
+
+div.document-widget div.outline div.thead table {
+
+	width: calc(100% - var(--scroll-width));
+	height: 100%;
+	table-layout: fixed;
+	border-collapse: collapse;
+	font-size: 14px;
+
+}
+
+div.document-widget div.outline div.thead table td {
+
+	border-right: 1px solid var(--line-color);
+
+}
+
+div.document-widget div.outline div.tbody table {
+
+	width: 100%;
+	table-layout: fixed;
+	border-collapse: collapse;
+	font-size: 14px;
+
+}
+
+div.document-widget div.outline div.tbody table td {
+
+	border-right: 1px solid var(--line-color);
+	border-bottom: 1px solid var(--line-color);
+	padding-top: 4px;
+	padding-bottom: 4px;
+
+}
+
+div.document-widget div.outline div.tbody table tr:last-child td {
+
+	border-bottom: none;
+
+}
+
+div.document-widget div.outline div.tbody table tr:nth-child(even) {
+
+	background-color: #f2f2f2;
+
+}
+
+div.document-widget div.outline td input {
+
+	width: calc(100% - 10px);
+
+}
+
+div.document-widget div.outline td.no {
+
+	width: 36px;
+
+}
+
+div.document-widget div.outline td.type {
+
+	width: 40px;
+
+}
+
+div.document-widget div.outline td.code {
+
+	width: 80px;
+
+}
+
+div.document-widget div.outline td.name {
+
+	width: 180px;
+
+}
+
+div.document-widget div.outline td.standard {
+
+	width: 230px;
+
+}
+
+div.document-widget div.outline td.unit {
+
+	width: 50px;
+
+}
+
+div.document-widget div.outline td.count-per-case {
+
+	width: 50px;
+
+}
+
+div.document-widget div.outline td.order-count {
+
+	width: 60px;
+
+}
+
+div.document-widget div.outline td.unit-count {
+
+	width: 60px;
+
+}
+
+div.document-widget div.outline td.sales-tax {
+
+	width: 80px;
+
+}
+
+div.document-widget div.outline td.subtotal {
+
+	width: 90px;
+
+}
+
+div.document-widget div.outline td.base-price {
+
+	width: 60px;
+
+}
+
+div.document-widget div.outline td.sales-price {
+
+	width: 90px;
+
+}
+
+div.document-widget div.outline td.case-price {
+
+	width: 90px;
+
+}
+
+div.document-widget div.outline td.package {
+
+	width: 40px;
+
+}
+
+div.document-widget div.outline td.lot {
+
+	width: 60px;
+
+}
+
+div.document-widget div.outline td.notes {
+
+}
+
+div.document-widget div.outline td.date {
+
+	width: 90px;
+
+}
+
+div.deliver-widget div.totals {
+
+	width: calc(100% - 2px);
+	border: 1px solid var(--line-color);
+	border-radius: 4px;
+	overflow: hidden;
+	min-height: 100px;
+
+}
+
+div.deliver-widget div.totals.drop {
+
+	margin-bottom: 8px;
+	box-shadow: 0 1px 3px rgba(0,0,0,0.16), 0 1px 3px rgba(0,0,0,0.23);
+
+}
+
+div.deliver-widget div.totals div.header {
+
+	height: 34px;
+	border-bottom: 1px solid var(--line-color);
+	line-height: 34px;
+	font-size: 14px;
+	font-weight: bold;
+	text-indent: 8px;
+	letter-spacing: 1px;
+	background-color: #efefef;
+	position: relative;
+
+}
+
+div.deliver-widget div.totals div.header button {
+
+	position: absolute;
+	right: 4px;
+	top: 5px;
+	border: 1px solid #444;
+	border-radius: 8px;
+	padding: 3px 12px;
+	background-color: transparent;
+
+}
+
+div.deliver-widget div.totals div.header button:hover {
+
+	cursor: pointer;
+	background-color: rgba(0,0,0,0.1);
+
+}
+
+
+div.deliver-widget div.totals div.body {
+
+	padding: 4px;
+	background-color: #fff;
+	min-height: 80px;
+
+}
+
+div.deliver-widget div.totals div.body.edi:hover {
+
+	cursor: pointer;
+
+}
+
+div.deliver-widget div.totals div.body.edi input[type="file"] {
+
+	display: none;
+
+}
+
+div.deliver-widget div.totals div.body div.drag-area {
+
+	width: 100%;
+	height: 120px;
+	position: relative;
+
+}
+
+div.deliver-widget div.totals div.body div.drag-area div.cover {
+
+	position: absolute;
+	left: 0;
+	top: 0;
+	background-color: rgba(187, 212, 237, 0.3);
+	width: 100%;
+	height: 100%;
+	border-radius: 4px;
+	transition: all 0.3s cubic-bezier(.25,.8,.25,1);
+
+}
+
+div.deliver-widget div.totals div.body.over div.drag-area div.cover {
+
+	transform: scale(0, 0);
+
+}
+
+div.deliver-widget div.totals div.body.edi * {
+
+	pointer-events: none;
+
+}
+
+div.deliver-widget div.totals div.body div.drag-area div.border {
+
+	position: absolute;
+	width: calc(100% - 16px);
+	height: calc(100% - 16px);
+	border: 2px dashed #7a7a7a;
+	border-radius: 8px;
+	left: 6px;
+	top: 6px;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	flex-direction: column;
+
+}
+
+
+div.deliver-widget div.totals div.body div.drag-area div.border img {
+
+	width: 50px;
+	height: 50px;
+	margin-bottom: 8px;
+	opacity: 0.5;
+
+}
+
+div.deliver-widget div.totals div.body div.drag-area div.border p {
+
+	padding: 0;
+	margin: 0;
+
+}
+
+
+div.deliver-widget div.totals div.body table {
+
+	width: 100%;
+	table-layout: fixed;
+	border-collapse: collapse;
+	font-size: 14px;
+
+}
+
+div.deliver-widget div.totals div.body table tr.fade {
+
+	color: #bbb;
+
+}
+
+div.deliver-widget div.totals div.body table td {
+
+	padding-top: 5px;
+	padding-bottom: 5px;
+
+}
+
+div.deliver-widget div.totals div.body table tr td:last-child {
+
+	text-align: right;
+
+}
+
+div.deliver-widget div.settings {
+
+	box-shadow: 0 1px 3px rgba(0,0,0,0.16), 0 1px 3px rgba(0,0,0,0.23);
+	width: calc(100% - 2px);
+	border: 1px solid var(--line-color);
+	border-radius: 4px;
+	margin-top: var(--padding-width);
+	overflow: hidden;
+
+}
+
+div.deliver-widget div.settings div.header {
+
+	height: 34px;
+	border-bottom: 1px solid var(--line-color);
+	background-color: #efefef;
+	line-height: 34px;
+	text-indent: 8px;
+	font-size: 14px;
+	letter-spacing: 1px;
+	font-weight: bold;
+	position: relative;
+
+}
+
+div.deliver-widget div.settings div.header div.radio {
+
+	position: absolute;
+	right: 4px;
+	top: 0;
+
+}
+
+div.deliver-widget div.settings div.body {
+	
+	padding: 4px;
+	background-color: #fff;
+
+}
+
+div.deliver-widget div.settings div.body table {
+
+	width: 100%;
+	table-layout: fixed;
+	border-collapse: collapse;
+	font-size: 14px;
+
+}
+
+div.deliver-widget div.settings div.body table tr.hide {
+
+	display: none;
+
+}
+
+div.deliver-widget div.settings div.body table td {
+
+	padding-top: 4px;
+	padding-bottom: 4px;
+
+}
+
+div.deliver-widget div.settings div.body table.no-pad td {
+
+	padding-top: 0;
+	padding-bottom: 0;
+
+}
+
+div.deliver-widget div.settings div.body table tr:nth-child(odd) {
+
+}
+
+div.deliver-widget div.settings div.body table tr td:first-child {
+
+	width: 120px;
+
+}
+
+div.deliver-widget div.settings div.body table td input[type="text"] {
+
+	width: calc(100% - 15px);
+	padding-right: 4px;
+	padding-top: 4px;
+	padding-bottom: 4px;
+	border: 1px solid #ccc;
+	border-radius: 4px;
+	margin-left: 4px;
+	text-indent: 8px;
+
+}
+
+div.deliver-widget div.settings div.body table td select {
+
+	width: calc(100% - 15px);
+	padding-right: 4px;
+	padding-top: 4px;
+	padding-bottom: 4px;
+	border: 1px solid #ccc;
+	border-radius: 4px;
+	margin-left: 4px;
+
+}
+
+div.deliver-widget div.settings div.body button.submit {
+
+	width: 80%;
+	color: #000;
+	background-color: transparent;
+	padding: 6px 0;
+	border-radius: 10px;
+	display: block;
+	color: #fff;
+	margin: 10px auto;
+/*
+	background-color: #28a745;
+	border: 1px solid #28a745;
+*/
+
+	background-color: rgb(42, 119, 68);
+	border: 1px solid rgb(42, 119, 68);
+
+}
+
+div.deliver-widget div.settings div.body button.submit:disabled {
+
+	background-color: rgb(44, 119, 61);
+	border-color: rgb(44, 119, 61);
+	opacity: 0.4;
+	pointer-events: none;
+
+}
+
+
+div.deliver-widget div.settings div.body button.submit:hover {
+
+	cursor: pointer;
+	background-color: #218838;
+
+}
+
+div.preview-widget {
+
+	position: absolute;
+	left: var(--fixes-width);
+	top: 0;
+	width: calc(100% - var(--deliver-width) - var(--fixes-width) - 20px);
+	height: 100%;
+	overflow-y: scroll;
+	padding-right: 4px;
+	background-color: #f2f2f2;
+
+	background-image: url('../img/janpure_bg.png');
+	background-position: center;
+	background-repeat: no-repeat;
+	background-attachment: fixed;
+	
+	/*
+	left: 0;
+	width: calc(100% - var(--deliver-width) - 20px);
+	*/
+
+}
+
+div.preview-widget div.bar {
+
+	width: 100%;
+	padding: 4px 0;
+	background-color: #000;
+	border-radius: 5px;
+	color: #fff;
+	text-indent: 16px;
+	font-size: 15px;
+	margin-bottom: 8px;
+
+}
+
+div.preview-widget div.bar table {
+
+	width: 100%;
+	table-layout: fixed;
+	border-collapse: collapse;
+
+}
+
+div.preview-widget div.bar table td:last-child {
+
+	width: 40px;
+	text-align: center;
+	padding-right: 6px;
+
+}
+
+div.preview-widget li {
+
+	list-style: none;
+	width: calc(100% - 2px);
+	border: 1px solid #333;
+	border-radius: 5px;
+	min-height: 40px;
+	background-color: #efefef;
+	min-height: 40px;
+	margin-bottom: 8px;
+
+}
+
+div.preview-widget li.active {
+
+	background-color: rgb(224, 241, 255);
+
+}
+
+div.preview-widget li.highlight {
+
+	background-color: #fcf5cf;
+
+}
+
+div.preview-widget li div.top-row {
+
+	padding: 4px;
+
+}
+
+div.preview-widget li div.top-row table {
+
+	width: 100%;
+	table-layout: fixed;
+	border-collapse: collapse;
+	font-size: 14px;
+
+}
+
+
+div.preview-widget li div.top-row table td.value.a {
+
+	width: 68px;
+
+}
+
+div.preview-widget li div.top-row table td.value.d {
+
+	width: 66px;
+
+}
+
+div.preview-widget li div.top-row table td.value.e {
+
+	width: 66px;
+
+}
+
+div.preview-widget li div.top-row table td.value.b {
+
+	width: 70px;
+
+}
+
+div.preview-widget li div.top-row table td.value.c {
+
+	width: 14px;
+
+}
+
+div.preview-widget li div.top-row table td.label {
+
+	font-weight: bold;
+	color : var(--label-color);
+
+}
+
+div.preview-widget li div.top-row table td.label.a {
+
+	width: 62px;
+
+}
+
+div.preview-widget li div.top-row table td.label.b {
+
+	width: 48px;
+
+}
+
+div.preview-widget li div.top-row table td.label.c {
+
+	width: 76px;
+
+}
+
+div.preview-widget li div.top-row table td.label.d {
+
+	width: 120px;
+
+}
+
+div.preview-widget li div.top-row table td.label.e {
+
+	width: 104px;
+
+}
+
+div.preview-widget li div.top-row table td.label.f {
+
+	width: 160px;
+
+}
+
+div.preview-widget li div.top-row table td.value.f {
+	
+	/*width: 120px;*/
+
+}
+
+div.preview-widget li div.top-row table td.fixed {
+
+	width: 4px;
+	text-align: center;
+
+}
+
+div.preview-widget li div.top-row table td.fixed span {
+
+	font-size: 12px;
+	color: #2d61bc;
+	font-weight: bold;
+	border: 1px solid #2d61bc;
+	border-radius: 6px;
+	padding: 2px 4px;
+
+}
+
+div.preview-widget li div.top-row table td.fixed span:hover {
+
+	cursor: pointer;
+	background-color: #fff;
+
+}
+
+div.preview-widget li div.top-row table td.checkbox {
+
+	width: 30px;
+	text-align: center;
+
+}
+
+div.preview-widget li div.shipping {
+
+	padding-bottom: 5px;
+	padding-left: 5px;
+	padding-right: 5px;
+
+}
+
+div.preview-widget li div.shipping table {
+
+	width: 100%;
+	table-layout: fixed;
+	border-collapse: collapse;
+	font-size: 15px;
+
+}
+
+div.preview-widget li div.shipping table td {
+
+	padding-top: 4px;
+	padding-bottom: 4px;
+	font-size: var(--label-font-size);
+
+}
+
+div.preview-widget li div.shipping table td.label {
+
+	font-weight: bold;
+	background-color: #f4eeeb;
+	border-right: 1px solid #9a9a9a;
+	border-bottom: 1px solid #9a9a9a;
+
+	color : var(--label-color);
+}
+
+div.preview-widget li div.shipping table td.label.a {
+
+	width: 92px;
+
+}
+
+div.preview-widget li div.shipping table td.label.b {
+
+	width: 112px;
+
+}
+
+div.preview-widget li div.shipping table td.label.c {
+
+	width: 84px;
+
+}
+
+div.preview-widget li div.shipping table td.label.d {
+
+	width: 126px;
+
+}
+div.preview-widget li div.shipping table tr td:first-child {
+
+	border-left: 1px solid #9a9a9a;
+
+}
+
+div.preview-widget li div.shipping table tr:first-child td {
+
+	border-top: 1px solid #9a9a9a;
+
+}
+
+div.preview-widget li div.shipping table td.value {
+
+	background-color: #fff;
+	border-right: 1px solid #9a9a9a;
+	border-bottom: 1px solid #9a9a9a;
+
+}
+
+div.preview-widget li div.shipping table td.value.a {
+
+	width: 25%;
+
+}
+
+div.preview-widget li div.shipping table td.value.c {
+	
+	width: 60px;
+
+}
+
+div.preview-widget li div.shipping table td.value.d {
+
+	width: 60px;
+
+}
+
+div.preview-widget li div.shipping table td.value.c input,
+div.preview-widget li div.shipping table td.value.d input {
+
+	text-align: right;
+
+}
+
+div.preview-widget li div.products {
+
+	padding-left: 5px;
+	padding-right: 5px;
+	padding-bottom: 5px;
+
+}
+
+div.preview-widget li div.products table {
+
+	width: 100%;
+	table-layout: fixed;
+	border-collapse: collapse;
+
+}
+
+div.preview-widget li div.products table tr:first-child th {
+
+	border-top: 1px solid #9a9a9a;
+
+}
+
+div.preview-widget li div.products table th {
+
+	background-color: #f4eeeb;
+	border-bottom: 1px solid #9a9a9a;
+	border-right: 1px solid #9a9a9a;
+	font-size: var(--label-font-size);
+	padding-top: 5px;
+	padding-bottom: 5px;
+	white-space: nowrap;
+	color : var(--label-color);
+
+}
+
+div.preview-widget li div.products table th span.tip {
+
+	cursor: help;
+	position: relative;
+
+}
+
+div.preview-widget li div.products table th span.tip i {
+
+	font-style: normal;
+	position: absolute;
+	right: -15px;
+	top: -3px;
+	font-size: 8px;
+	width: 14px;
+	height: 14px;
+	border-radius: 100%;
+	text-align: center;
+	line-height: 16px;
+	background-color: rgba(0,0,0,0.5);
+	color: #fff;
+	pointer-events: none;
+
+}
+
+div.preview-widget li div.products table th span.tip.price:before {
+
+	content : "順番 : マスター・EDI";
+	width: 150px;
+
+}
+
+div.preview-widget li div.products table th span.tip.color:before {
+
+	content : "数量単位の場合もある";
+	width: 150px;
+
+}
+
+div.preview-widget li div.products table th span.tip:before {
+
+	position: absolute;
+	left: 0;
+	bottom: calc(100% + 10px);
+	background-color: rgba(0,0,0,0.7);
+	padding: 4px;
+	border-radius: 5px;
+	color: #fff;
+	font-size: 13px;
+	text-indent: 4px;
+	font-weight: 400;
+	cursor: default;
+	
+	transform: translateY(10px);
+	opacity: 0;
+	transition: transform 200ms, opacity 200ms;
+
+}
+
+div.preview-widget li div.products table th span.tip:after {
+	
+	content: "";
+	display: block;
+	position: absolute;
+	bottom: 100%;
+	left: 10px;
+
+	width: 0; 
+	height: 0; 
+	border-left: 10px solid transparent;
+	border-right: 10px solid transparent;
+	border-top: 10px solid rgba(0,0,0,0.7);
+	cursor: default;
+
+	transform: translateY(10px);
+	opacity: 0;
+	transition: transform 200ms, opacity 200ms;
+
+}
+
+div.preview-widget li div.products table th span.tip:hover:before,
+div.preview-widget li div.products table th span.tip:hover:after {
+
+	transform: translateY(0px);
+	opacity: 1;
+
+
+}
+
+div.preview-widget li div.products table tr.dash th {
+
+	border-bottom: none;
+	position: relative;
+
+}
+
+div.preview-widget li div.products table tr.dash th:after {
+
+	content: "";
+	display: block;
+	position: absolute;
+	top: calc(100% - 1px);
+	border-bottom: 1px dashed #9a9a9a;
+	width: calc(100% - 4px);
+	left: 2px;
+
+}
+
+div.preview-widget li div.products table tr.dash th:before {
+
+	content: "";
+	display: block;
+	position: absolute;
+	top: 0;
+	left: 100%;
+	border-right: 1px solid #9a9a9a;
+	height: 100%;
+
+}
+
+div.preview-widget li div.products table tr.dash th.a {
+
+	width: 90px;
+
+}
+
+div.preview-widget li div.products table tr.dash th.b {
+
+	width: 78px;
+
+}
+
+div.preview-widget li div.products table tr.dash th.c {
+
+	width: 104px;
+
+}
+
+div.preview-widget li div.products table tr.dash th.e {
+
+	width: 11%;
+
+}
+
+div.preview-widget li div.products table tr.dash th.f {
+
+	width: 8%;
+
+}
+
+div.preview-widget li div.products table tr.dash th.g {
+
+	width: 6%;
+
+}
+
+div.preview-widget li div.products table tr.dash th.h {
+
+	width: 70px;
+
+}
+
+div.preview-widget li div.products table tr.dash th.i {
+
+	width: 84px;
+
+}
+
+div.preview-widget li div.products table tr.dash th.j {
+
+	width: 70px;
+
+}
+
+div.preview-widget li div.products table td {
+
+	background-color: #fff;
+	padding-top: 4px;
+	padding-bottom: 4px;
+	font-size: 14px;
+	border-right: 1px solid #9a9a9a;
+	border-bottom: 1px solid #9a9a9a;
+
+}
+
+div.preview-widget li div.products table td.error {
+
+	background-color: #ffcccc;
+
+}
+
+div.preview-widget li div.products table td.o input,
+div.preview-widget li div.products table td.p input,
+div.preview-widget li div.products table td.q input,
+div.preview-widget li div.products table td.r input,
+div.preview-widget li div.products table td.s input,
+div.preview-widget li div.products table td.t input {
+
+	text-align: right;
+
+}
+
+div.preview-widget li div.products table td.i input {
+
+}
+
+div.preview-widget li div.products table td label {
+
+	width: 70%;
+	display: block;
+	margin: auto;
+
+}
+
+div.preview-widget li div.products table td label input[type="radio"] {
+
+	margin: 0;
+	
+}
+
+div.preview-widget li div.products table td label input[type="text"] {
+
+	width: calc(100% - 24px);
+	text-align: right;
+
+}
+
+div.preview-widget li div.products table td.error {
+
+	background-color: #fcdedf !important;
+
+}
+
+div.preview-widget li div.products table td.warn {
+
+	background-color: #fbfce8 !important;
+
+}
+
+div.preview-widget li div.products table td.edit {
+
+	background-color: #f2fcf3 !important;
+
+}
+
+div.preview-widget li div.products table tr.even td {
+
+	background-color: #f2f2f2;
+
+}
+
+div.preview-widget li div.products table tr.dash td {
+
+	border-bottom: none;
+	position: relative;
+
+}
+
+div.preview-widget li div.products table tr.dash td button {
+
+	display: block;
+	margin: auto;
+	width: calc(100% - 6px);
+
+}
+
+div.preview-widget li div.products table tr.dash td:before {
+
+	content: "";
+	display: block;
+	position: absolute;
+	top: 0;
+	left: 100%;
+	border-right: 1px solid #9a9a9a;
+	height: 100%;
+
+}
+
+div.preview-widget li div.products table tr.dash td:after {
+
+	content: "";
+	display: block;
+	position: absolute;
+	top: calc(100% - 1px);
+	border-bottom: 1px dashed #9a9a9a;
+	width: calc(100% - 4px);
+	left: 2px;
+
+}
+
+div.preview-widget li div.products table tr th:first-child,
+div.preview-widget li div.products table tr td:first-child {
+
+	border-left: 1px solid #9a9a9a;
+	width : 90px;
+
+}
+
+div.preview-widget ul {
+
+	padding: 0;
+	margin: 0;
+
+	padding-left: 4px;
+	padding-right: 4px;
+	padding-top: 4px;
+	padding-bottom: 4px;
+
+}
+
+div.preview-widget li input[type="text"].short {
+
+	width: 90px;
+
+}
+
+div.preview-widget li input[type="text"] {
+
+	width: calc(100% - 2px);
+
+}
+
+div.preview-widget li input[type="text"][readonly="readonly"] {
+
+	border: none;
+	background-color: transparent;
+
+}
+
+div.preview-widget li input[type="text"][readonly="readonly"].hover:hover {
+
+	cursor: pointer;
+	background-color: rgba(0,0,0,0.1);
+	border-radius: 5px;
+
+}
+
+div.deliver-widget div.csv {
+
+	box-shadow: 0 1px 3px rgba(0,0,0,0.16), 0 1px 3px rgba(0,0,0,0.23);
+	width: calc(100% - 2px);
+	border: 1px solid var(--line-color);
+	border-radius: 4px;
+	margin-top: var(--padding-width);
+	overflow: hidden;
+	height: calc(100% - 375px);
+
+}
+
+div.deliver-widget div.csv div.header {
+
+	height: 34px;
+	border-bottom: 1px solid var(--line-color);
+	background-color: #efefef;
+	line-height: 34px;
+	text-indent: 8px;
+	font-size: 14px;
+	letter-spacing: 1px;
+	font-weight: bold;
+
+}
+
+div.deliver-widget div.csv textarea.preview {
+
+	padding: 0px 4px;
+	margin: 0;
+	outline: none;
+	border: none;
+	overflow: auto;
+	height: calc(100% - 35px);
+	width: calc(100% - 8px);
+	resize: none;
+	font-size: 14px;
+
+}
+
+div.fixes-widget {
+
+	left: 0;
+	top: 0;
+	height: 100%;
+	width: calc(var(--fixes-width) - 2px);
+	background-color: rgba(0,0,0,0.2);
+	position: fixed;
+	border-right: 2px solid #444;
+
+
+}
+
+div.fixes-widget div.header {
+
+	width: 100%;
+	height: 40px;
+	background-color: #3e4249;
+	color: #fff;
+	text-indent: 8px;
+	line-height: 40px;
+	font-size: 14px;
+	letter-spacing: 1px;
+
+}
+
+div.fixes-widget div.body {
+
+	height: calc(100% - 40px);
+	overflow-y: scroll;
+	overflow-x: hidden;
+
+}
+
+div.fixes-widget div.body {
+
+
+}
+
+div.fixes-widget div.body ul {
+
+	padding: 0;
+	margin: 0;
+
+}
+
+div.fixes-widget div.body li {
+
+	list-style: none;
+	width: calc(100% - 10px);
+	border: 1px solid #444;
+	border-radius: 8px;
+	display: block;
+	margin: auto;
+	margin-top: 5px;
+	min-height: 90px;
+	background-color: #fff;
+	font-family: monospace;
+	overflow: hidden;
+
+}
+
+div.fixes-widget div.body li:last-child {
+
+	margin-bottom: 5px;
+
+}
+
+div.fixes-widget div.body li div.row.pad {
+
+	padding-top: 4px;
+
+}
+
+div.fixes-widget div.body li div.meta {
+
+	background-color: #efefef;
+	border-bottom: 1px solid #ccc;
+	padding: 10px 8px;
+
+}
+
+div.fixes-widget div.body li div.meta div.row table {
+
+	width: 100%;
+	table-layout: fixed;
+	border-collapse: collapse;
+	font-size: 14px;
+
+}
+
+div.fixes-widget div.body li div.meta div.row table td.label {
+
+	font-weight: bold;
+
+}
+
+div.fixes-widget div.body li div.meta div.row table td.label.a {
+
+	width: 90px;
+
+}
+
+div.fixes-widget div.body li div.meta div.row table td.label.b {
+
+	width: 80px;
+
+}
+
+div.fixes-widget div.body li div.meta div.row table td.label.c {
+
+	width: 110px;
+
+}
+
+div.fixes-widget div.body li div.meta div.row table td.label.d {
+
+	width: 74px;
+
+}
+
+div.fixes-widget div.body li div.meta div.row table td.label.e,
+div.fixes-widget div.body li div.meta div.row table td.label.f {
+
+	width: 130px;
+
+}
+
+div.fixes-widget div.body li div.meta div.row table td.label.g {
+
+	width: 200px;
+
+}
+
+div.fixes-widget div.body li div.meta div.row table td.value.fixed {
+
+	width: 44px;
+
+}
+
+div.fixes-widget div.body li div.meta div.row table td.value.b,
+div.fixes-widget div.body li div.meta div.row table td.value.c {
+
+	width: 80px;
+
+}
+
+div.fixes-widget div.body li div.meta div.row table td.fix {
+
+	width: 90px;
+	text-align: right;
+	font-weight: bold;
+	color: #0f48aa;
+}
+
+div.fixes-widget div.body li div.meta div.row table td.fix span:hover {
+
+	cursor: pointer;
+	text-decoration: underline;
+
+}
+
+
+div.fixes-widget div.body li div.table {
+
+	padding: 8px;
+	padding-bottom: 0;
+
+}
+
+div.fixes-widget div.body li div.table:last-child {
+
+	padding-bottom: 8px;
+
+}
+
+div.fixes-widget div.body li div.table table {
+
+	width: 100%;
+	table-layout: fixed;
+	border-collapse: collapse;
+	font-size: 14px;
+
+}
+
+div.fixes-widget div.body li div.table table th.label {
+
+	background-color: rgb(244, 238, 235);
+	text-align: center;
+
+}
+
+div.fixes-widget div.body li div.table table th.label.a {
+
+	width: 64px;
+	
+}
+
+div.fixes-widget div.body li div.table table th.label.c {
+
+	width: 32px;
+
+}
+
+
+div.fixes-widget div.body li div.table table th.label.d {
+
+	width: 38px;
+
+}
+
+div.fixes-widget div.body li div.table table th.label.e {
+
+	width: 46px;
+
+}
+
+div.fixes-widget div.body li div.table table td.va {
+
+	text-align: center;
+
+}
+
+div.fixes-widget div.body li div.table table td.vb {
+
+	text-indent: 4px;
+	overflow: hidden;
+	text-overflow: ellipsis;
+	white-space: nowrap;
+
+}
+
+div.fixes-widget div.body li div.table table td.vc,
+div.fixes-widget div.body li div.table table td.vd,
+div.fixes-widget div.body li div.table table td.ve {
+
+	padding-right: 4px;
+	text-align: right;
+
+}
+
+div.fixes-widget div.body li div.table table td {
+
+	padding-top: 2px;
+	padding-bottom: 2px;
+	overflow: hidden;
+	text-overflow: ellipsis;
+	white-space: nowrap;
+
+}
+
+div.fixes-widget div.body li div.table table td:nth-child(4) ,
+div.fixes-widget div.body li div.table table td:nth-child(5) {
+
+	text-align: right;
+	padding-top: 2px;
+}
+
+div.fixes-widget div.body li div.table table td.label_left {
+	padding-left: 3px;
+	width: 16px;
+}
+
+div.fixes-widget div.body li div.table table td.label {
+
+	width: 60px;
+	text-indent: 2px;
+	background-color: rgb(244, 238, 235);
+
+}
+
+div.fixes-widget div.body li div.table table td.value {
+
+	text-indent: 2px;
+	overflow: hidden;
+	text-overflow: ellipsis;
+	white-space: nowrap;
+
+}
+
+div.fixes-widget div.body li div.footer {
+
+	background-color: #efefef;
+	border-top: 1px solid #ccc;
+	padding: 10px 8px;
+	margin-top: 8px;
+
+}
+
+div.fixes-widget div.body li div.footer table tr:first-child td {
+
+	border-top: 1px solid #9a9a9a;
+
+}
+
+div.fixes-widget div.body li div.footer table tr:nth-child(odd) td {
+
+
+}
+
+div.fixes-widget div.body li div.footer table td.label.a {
+
+	width: 54px;
+	text-align: right;
+
+}
+
+div.fixes-widget div.body li div.footer table td.label.b {
+
+	text-indent: 4px;
+	width: 160px;
+	border-right: 1px solid #9a9a9a;
+	border-bottom: 1px solid #9a9a9a;
+	border-left: 1px solid #9a9a9a;
+
+}
+
+div.fixes-widget div.body li div.footer table td.value {
+
+	text-indent: 4px;
+	border-right: 1px solid #9a9a9a;
+	border-bottom: 1px solid #9a9a9a;
+
+}
+
+
+div.fixes-widget div.body li div.footer table {
+
+	width: 100%;
+	table-layout: fixed;
+	border-collapse: collapse;
+	font-size: 14px;
+
+}
+
+div.preview-widget div.reset {
+
+	border-top: 1px dashed #ccc;
+	padding-top: 10px;
+
+}
+
+div.preview-widget div.reset.hide {
+
+	display: none;
+
+}
+
+div.preview-widget div.reset div.back {
+
+	width: 80px;
+	border: 1px solid #888;
+	float: right;
+	margin-right: 8px;
+	border-radius: 5px;
+	text-align: center;
+	position: relative;
+	text-align: right;
+	padding-right: 10px;
+	background-color: #f7f3c3;
+
+}
+
+div.preview-widget div.reset div.back img {
+
+	position: absolute;
+	left: 4px;
+	top: 2px;
+	width: 20px;
+
+}
+
+div.preview-widget div.reset div.back:hover {
+
+	cursor: pointer;
+	box-shadow: 0 3px 6px rgba(0,0,0,0.16), 0 3px 6px rgba(0,0,0,0.23);
+
+}
+
+
+div.fixes-widget div.header table {
+
+	width: 100%;
+	height: 100%;
+	table-layout: fixed;
+	border-collapse: collapse;
+
+}
+
+div.fixes-widget div.header table td.txt {
+
+	text-indent: 4px;
+
+}
+
+div.fixes-widget div.header table td.sel {
+
+	width: 110px;
+
+}
+
+div.fixes-widget div.header table td.sel select {
+
+	width: 96%;
+	display: block;
+	margin: auto;
+	border-radius: 4px;
+	padding: 2px 0;
+	border: 1px solid #333;
+	font-size: 14px;
+
+}
+
+div.fixes-widget div.header table td.ipt {
+
+	width: 120px;
+
+}
+
+div.fixes-widget div.header table td.ipt input {
+
+	width: 96%;
+	display: block;
+	margin: auto;
+	border: 1px solid #333;
+	border-radius: 10px;
+	text-indent: 10px;
+	background-color: #fff;
+	padding: 4px 0;
+
+}
+
+div.fixes-widget div.header table td.btn {
+
+	width: 60px;
+
+}
+
+div.fixes-widget div.header table td.btn button {
+
+	width: 90%;
+	display: block;
+	margin: auto;
+	border: 1px solid #333;
+	border-radius: 10px;
+	padding: 2px 0;
+
+}
+
+div.fixes-widget div.header table td.btn button:hover {
+
+	cursor: pointer;
+	color: #fff;
+	background-color: #ff4500;
+
+}
+
+div.preview-widget li div.input-row {
+
+	width: calc(100% - 10px);
+	display: block;
+	margin: auto;
+	margin-bottom: 4px;
+
+}
+
+div.preview-widget li div.input-row div.cal-hint {
+
+	position: relative;
+
+}
+
+div.preview-widget li div.input-row div.cal-hint input:hover {
+
+	cursor: pointer;
+
+}
+
+div.preview-widget li div.input-row div.cal-hint:hover:before {
+
+	opacity: 0.4;
+
+}
+
+div.preview-widget li div.input-row div.cal-hint:before {
+
+	pointer-events: none;
+	content: "";
+	display: block;
+	position: absolute;
+	right: 4px;
+	top: 0px;
+	width: 20px;
+	height: 20px;
+	background-image: url('../img/calendar-today.png');
+	background-size: 100%;
+	background-repeat: no-repeat;
+	opacity: 0.3;
+
+}
+
+div.preview-widget li div.input-row input {
+
+	border: transparent;
+	background-color: transparent;
+
+}
+
+div.preview-widget li div.input-row input.error {
+
+	background-color: #f7d7d7;
+
+}
+
+div.preview-widget li div.input-row input.warn {
+
+	background-color: #f7e4d7;
+
+}
+
+div.preview-widget li div.input-row table {
+
+	width: 100%;
+	table-layout: fixed;
+	border-collapse: collapse;
+	font-size: 14px;
+
+	border-left: 1px solid #9a9a9a;;
+	border-bottom: 1px solid #9a9a9a;
+}
+
+div.preview-widget li div.input-row table td {
+
+	padding-top: 2px;
+	padding-bottom: 2px;
+
+}
+
+div.preview-widget li div.input-row table td.label {
+
+	border-right: 1px solid #9a9a9a;
+	border-top: 1px solid #9a9a9a;
+	text-indent: 4px;
+	background-color: #f4eeeb;
+
+}
+
+div.preview-widget li div.input-row table td.label.a {
+
+	width: 62px;
+
+}
+
+div.preview-widget li div.input-row table td.label.b {
+
+	width: 130px;
+
+}
+
+div.preview-widget li div.input-row table td.label span.hint {
+
+	display: inline-block;
+	margin-left: 10px;
+	width: 18px;
+	height: 18px;
+	background-color: rgba(0,0,0,0.1);
+	border-radius: 100%;
+	margin-top: 4px;
+	line-height: 18px;
+	color: #fff;
+	font-size: 12px;
+	text-align: center;
+	text-indent: 0;
+	position: relative;
+
+}
+
+div.preview-widget li div.input-row table td.label span.hint div.bubble {
+
+	position: absolute;
+	display: block;
+	left: -20px;
+	bottom: 32px;
+	width: 400px;
+	min-height: 30px;
+	background-color: rgba(0,0,0,0.8);
+	padding: 10px;
+	border-radius: 10px;
+	text-align: left;
+	pointer-events: none;
+
+	opacity: 0;
+	transform: translateY(10px);
+	transition: opacity 250ms, transform 250ms;
+
+}
+
+div.preview-widget li div.input-row table td.label span.hint:hover div.bubble {
+
+	opacity: 1;
+	transform: translateY(0px);
+
+}
+
+div.preview-widget li div.input-row table td.label span.hint div.bubble a {
+
+	display: block;
+
+}
+
+
+div.preview-widget li div.input-row table td.label span.hint div.bubble:before {
+
+	content: "";
+	display: block;
+	position: absolute;
+	left: 21px;
+	top: 100%;
+	width: 0;
+	height: 0;
+	border-left: 8px solid transparent;
+	border-right: 8px solid transparent;
+	border-top: 14px solid rgba(0,0,0,0.8);
+
+}
+
+div.preview-widget li div.input-row table td.label span.hint:hover {
+
+	cursor: pointer;
+
+}
+
+div.preview-widget li div.input-row table td.value {
+
+	background-color: #fff;
+
+	border-right: 1px solid #9a9a9a;
+	border-top: 1px solid #9a9a9a;
+
+}
+
+div.preview-widget li div.input-row table td.value.warn {
+
+	background-color: #fcfcde;
+
+}
+
+div.modal {
+
+	position: fixed;
+	left: 0;
+	top: 0;
+	width: 100%;
+	height: 100%;
+	background-color: rgba(0,0,0,0.2);
+	z-index: 10;
+
+	pointer-events: none;
+	opacity: 0;
+	transition: opacity 250ms;
+
+}
+
+div.modal.open {
+
+	pointer-events: all;
+	opacity: 1;
+
+}
+
+div.modal div.form {
+
+	background-color: #f8f8f8;
+	width: 640px;
+	min-height: 200px;
+	display: block;
+	margin: auto;
+	border-radius: 15px;
+	overflow: hidden;
+	box-shadow: 0 10px 20px rgba(0,0,0,0.19), 0 8px 10px rgba(0,0,0,0.23);
+
+	transform: translateY(0px);
+	transition: transform 250ms;
+
+}
+
+div.modal.open div.form {
+
+	transform: translateY(50px);
+
+}
+
+div.modal div.form div.header {
+
+	height: 40px;
+	background-color: rgb(48, 77, 119);
+
+}
+
+div.modal div.form div.header table {
+
+	width: 100%;
+	height: 100%;
+	table-layout: fixed;
+	border-collapse: collapse;
+
+}
+
+div.modal div.form div.header table h5 {
+
+	padding: 0;
+	margin: 0;
+	color: #fff;
+	text-indent: 8px;
+	letter-spacing: 2px;
+	font-size: 18px;
+	font-weight: 400;
+
+}
+
+div.modal div.form div.header table td.btn {
+
+	width: 40px;
+
+}
+
+div.modal div.form div.header table td.btn div.close {
+
+	width: 28px;
+	height: 28px;
+	border-radius: 5px;
+	display: block;
+	margin: auto;
+	background-color: rgba(255, 255, 255, 0.05);
+	background-image: url('../img/close.png');
+	background-size: 80%;
+	background-position: center;
+	background-repeat: no-repeat;
+
+}
+
+div.modal div.form div.header table td.btn div.close:hover {
+
+	cursor: pointer;
+	background-color: rgba(255, 255, 255, 0.2);
+
+}
+
+div.modal div.form div.body {
+
+	padding: 20px 10px;
+
+}
+
+div.modal div.form div.body table {
+
+	width: 100%;
+	table-layout: fixed;
+	border-collapse: collapse;
+
+}
+
+div.modal div.form div.body table tr:nth-child(odd) {
+
+	background-color: rgba(0,0,0,0.05);
+
+}
+
+div.modal div.form div.body table td {
+
+	padding-top: 8px;
+	padding-bottom: 8px;
+	
+	border-right: 1px solid #cbcbcb;
+	border-bottom: 1px solid #cbcbcb;
+
+}
+
+div.modal div.form div.body table tr:first-child td {
+
+	border-top: 1px solid #cbcbcb;
+
+}
+
+div.modal div.form div.body table tr td:first-child {
+
+	border-left: 1px solid #cbcbcb;
+
+}
+
+div.modal div.form div.body table td.label {
+
+	font-size: 14px;
+	width: 200px;
+
+}
+
+div.modal div.form div.body table td.label a {
+	
+	font-size: 12px;
+	color: #cc2236;
+
+}
+
+div.modal div.form div.body table td input[type='text'] {
+
+	width: calc(100% - 12px);
+	padding: 8px 0;
+	border: 1px solid #bababa;
+	text-indent: 10px;
+	border-radius: 5px;
+	margin-left: 4px;
+
+}
+
+div.modal div.form div.body table td input[type='text']:focus {
+
+	box-shadow: rgba(0, 0, 25, 0.1) 0px 1px 3px 0px, rgba(0, 0, 23, 0.06) 0px 1px 2px 0px;
+	border-color: #b2d1f3;
+	outline: none;
+
+}
+
+div.modal div.form div.body table tr.error td {
+
+	background-color: rgba(255, 223, 223, 0.6);
+
+}
+
+div.modal div.form div.footer {
+
+	height: 40px;
+	padding-bottom: 8px;
+	width: calc(100% - 10px);
+	display: block;
+	margin: auto;
+
+}
+
+div.modal div.form div.footer table {
+
+	width: 100%;
+	height: 100%;
+	table-layout: fixed;
+	border-collapse: collapse;
+
+}
+
+div.modal div.form div.footer table td.space {
+
+	width: 100px;
+
+}
+
+div.modal div.form div.footer table button {
+
+	width: calc(100% - 20px);
+	display: block;
+	margin: auto;
+	padding: 5px;
+	border: 1px solid #2057aa;
+	border-radius: 12px;
+	font-size: 16px;
+	transition: box-shadow 0.3s cubic-bezier(.25,.8,.25,1);
+
+}
+
+div.modal div.form div.footer table button:hover {
+
+	cursor: pointer;
+	box-shadow: 0 3px 6px rgba(0,0,0,0.16), 0 3px 6px rgba(0,0,0,0.23);
+
+}
+
+div.modal div.form div.footer table button.cancel {
+
+	background-color: transparent;
+	color: #2057aa;
+
+}
+
+div.modal div.form div.footer table button.confirm {
+
+	color: #fff;
+	background-color: #2057aa;
+
+}

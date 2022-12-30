@@ -1,0 +1,427 @@
+html {
+
+    height: 100%;
+    padding: 0;
+    margin: 0;
+
+}
+
+body {
+
+    height: 100%;
+    padding: 0;
+    margin: 0;
+    background-color: #fcfcfc;
+
+}
+
+main {
+
+	width: 100%;
+	height: 100%;
+
+	--ship-date-color: slateblue;
+	--company-color: royalblue;
+	--amount-color: steelblue;
+}
+
+div.spacer  {
+	display: block;
+	height: 10px;
+}
+
+div.search-toolbar {
+
+	height: 90px;
+	background-color: #fafafa;
+	width: calc(100% - 20px);
+	display: block;
+	margin: auto;
+	background-color: #f7f7f7;
+
+}
+
+div.search-toolbar table {
+
+	width: 100%;
+	height: 100%;
+	table-layout: fixed;
+	border-collapse: collapse;
+	
+
+}
+div.search-toolbar table th,
+div.search-toolbar table td {
+	border: 1px solid gray;
+}
+
+div.search-toolbar table th.a {
+
+	width: 110px;
+	font-weight : normal;
+
+}
+
+div.search-toolbar table th.b {
+
+	font-weight : normal;
+
+}
+
+div.search-toolbar table th.b input[type='radio'] {
+	left : 30%;
+}
+
+div.search-toolbar table th.b span.space {
+	display: inline-block;
+	width : 20%;
+}
+
+div.search-toolbar table th.b button {
+	border-width : 0px;
+	background-color: transparent;
+}
+
+div.search-toolbar table th.b button:active {
+	position : relative;
+	top: 1px;
+	left: 1px;
+}
+
+div.search-toolbar table th.c {
+
+	color : var(--ship-date-color);
+	font-weight : normal;
+
+}
+
+div.search-toolbar table th.c input[type='radio'] {
+	left : 30%;
+}
+
+
+div.search-toolbar table th.c span.space {
+	display: inline-block;
+	width : 20%;
+}
+
+div.search-toolbar table th.c button {
+	border-width : 0px;
+	background-color: transparent;
+}
+
+div.search-toolbar table th.c button:active {
+	position : relative;
+	top: 1px;
+	left: 1px;
+}
+
+div.search-toolbar table th.d {
+
+	color : var(--company-color);
+	font-weight : normal;
+	width : 17%;
+
+}
+
+div.search-toolbar table th.e {
+
+	color : var(--amount-color);
+	font-weight : normal;
+
+	width : 19%;
+}
+
+div.search-toolbar table th.f {
+	font-weight : normal;
+	width : 100px;
+}
+
+div.search-toolbar table th.g {
+	font-weight : normal;
+	width : 140px;
+}
+
+div.search-toolbar td.center {
+
+	text-align: center;
+	font-weight : normal;
+
+}
+
+div.search-toolbar th.right ,
+div.search-toolbar td.right {
+	text-align: right;
+	font-weight : normal;
+}
+
+div.search-toolbar select {
+
+	max-width: 100%;
+
+}
+
+div.search-toolbar input[type='text'] {
+
+	display: block;
+	margin: auto;
+	width: calc(100% - 10px);
+
+}
+
+div.search-toolbar input[type='number'] {
+
+	width: 100px;
+
+}
+
+div.search-toolbar input[type='date'] {
+
+	width: 120px;
+
+}
+
+div.search-toolbar table td:nth-child(2) {
+	border-right-style: dotted;
+}
+div.search-toolbar table td:nth-child(3) {
+	border-left-width: 0px;
+}
+
+div.search-toolbar table td:nth-child(4) {
+	border-right-style: dotted;
+}
+div.search-toolbar table td:nth-child(5) {
+	border-left-width: 0px;
+}
+
+div.search-toolbar table td:nth-child(7) {
+	border-right-style: dotted;
+}
+
+div.search-toolbar table td:nth-child(8) {
+	border-left-width: 0px;
+}
+div.search-toolbar table td:nth-child(8) {
+}
+
+div.search-toolbar table td:nth-child(10) {
+	border-left-width: 0px;
+}
+
+div.results-table {
+
+	width: calc(100% - 22px);
+	display: block;
+	margin: auto;
+	height: calc(100% - 120px);
+	border: 1px solid #777;
+
+}
+
+div.results-table div.header {
+
+	width: 100%;
+	height: 39px;
+	border-bottom: 1px solid #777;
+	background-color: #f7f7f7;
+
+}
+
+div.results-table div.header table {
+
+	width: calc(100% - var(--scroll-width));
+	height: 100%;
+	table-layout: fixed;
+	border-collapse: collapse;
+
+}
+
+div.results-table div.header table th {
+
+	border-right: 1px solid #cecece;
+	text-align: center;
+	font-weight : normal;
+
+}
+
+
+div.results-table div.body {
+
+	width: 100%;
+	height: calc(100% - 40px);
+	overflow-y: scroll;
+
+}
+
+div.results-table div.body table {
+
+	width: 100%;
+	border-collapse: collapse;
+	table-layout: fixed;
+
+}
+div.results-table div.body table th ,
+div.results-table div.body table td {
+	font-size: 12px;
+	border-right: 1px solid #cecece;
+	border-bottom: 1px solid #cecece;
+	font-weight: normal;
+}
+
+div.results-table div.body table span.link {
+
+	color: blue;
+	text-decoration: underline;
+
+}
+
+div.results-table div.body table span.link.disabled {
+
+	text-decoration: none;
+	color: #969496;
+	opacity: 0.8;
+	pointer-events: none;
+
+}
+
+div.results-table div.body table span.link:hover {
+	cursor: pointer;
+	text-decoration: none;
+}
+
+div.results-table th.a ,
+div.results-table td.a {
+	width: 110px;
+}
+
+div.results-table th.b ,
+div.results-table td.b {
+
+	width: 90px;
+
+}
+
+div.results-table th.c {
+}
+
+div.results-table th.d {
+	color : var(--ship-date-color);
+}
+div.results-table th.e {
+	color : var(--company-color);
+}
+div.results-table th.f {
+	color : var(--amount-color);
+}
+
+div.results-table th.c,
+div.results-table th.d,
+div.results-table td.c,
+div.results-table td.d {
+
+	width: 100px;
+	text-align: center;
+
+}
+
+
+div.results-table th.f ,
+div.results-table td.f {
+
+	width: 100px;
+	padding-right: 4px;
+	text-align: right;
+
+}
+
+div.results-table th.g,
+div.results-table th.h,
+div.results-table th.i ,
+div.results-table td.g,
+div.results-table td.h,
+div.results-table td.i {
+	
+	text-align: center;
+	width: 120px;
+
+}
+
+
+div.results-table th.j,
+div.results-table td.j {
+
+	width: 20%;
+
+}
+
+div.results-table th.k,
+div.results-table td.k {
+
+	width: 8%;
+
+}
+
+div.results-table th.g,
+div.results-table th.h,
+div.results-table th.j{
+
+	cursor : pointer;
+
+}
+
+div.results-table td.j {
+
+	overflow-x: hidden;
+	white-space: nowrap;
+	text-overflow: ellipsis;
+
+
+}
+
+div.results-table td.j a {
+
+	display: block;
+
+}
+
+div.results-table table td table.ipfs td{
+border:none;
+
+}
+
+span.tooltip:before {
+
+	content: '';
+	position:absolute;
+	top:18px;
+	left:-17px;
+	border:8px solid transparent;
+	border-right:10px solid rgba(128,144,160, 0.95);
+
+}
+
+span.tooltip {
+
+	position:absolute;
+	top : 105px;
+	background-color:rgba(128,144,160, 0.95);
+	color:white;
+	font-size:0.8em;
+	border-radius:0.5em;
+	padding:10px;
+	margin:-0.8em 0.5em 0 1em;
+	animation: appear 2s forwards;
+
+}
+
+ @keyframes appear {
+    0% {
+      opacity: 30%;
+      transform: translateX(10px);
+    }
+    100% {
+      opacity: 1;
+      transform: none;
+    }
+  }

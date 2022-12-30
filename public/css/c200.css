@@ -1,0 +1,838 @@
+html {
+
+	height: 100%;
+	padding: 0;
+	margin: 0;
+
+}
+
+body {
+
+	height: 100%;
+	padding: 0;
+	margin: 0;
+	background-color: #fff;
+
+}
+
+main {
+
+	width: 100%;
+	height: 100%;
+	background-color: #bababa;
+
+	--client-rank: 1000px;
+	--line-color: #999;
+	--header-height: 40px;
+	--thead-height: 34px;
+
+	--main-type-width: 68px;
+	--main-edit-postcode: 64px;
+	--main-edit-rep: 84--main-edit-telpx;
+	--main-edit-tel: 96px;
+
+	--main-edit-top: 115px;
+	--main-edit-button: 56px;
+
+	--rank-width: 54px;
+}
+
+main div.client-rank {
+
+	width: calc(var(--client-rank) - 2px);
+	height: 100%;
+	right: 0;
+	top: 0;
+	border-left: 2px solid var(--line-color);
+	position: absolute;
+
+}
+
+main div.client-list{
+
+/*
+	width: calc(100% - var(--client-rank) - 12px);
+*/
+	width: calc(100% - var(--client-rank) );
+	height: 100%;
+	left: 0;
+	top: 0;
+	position: absolute;
+	border-right: 1px solid var(--line-color);
+
+}
+
+main div.header {
+
+	width: 100%;
+	height: calc(var(--header-height) - 1px);
+	border-bottom: 1px solid var(--line-color);
+	background-color: #fff;
+
+}
+
+main div.header table {
+
+	height: 100%;
+	width: 100%;
+	table-layout: fixed;
+	border-collapse: collapse;
+
+}
+
+main div.header table td.title {
+
+	width: 123px;
+
+}
+
+main div.header table td.search {
+
+	width: 280px;
+	padding-left: 10px;
+
+}
+
+main div.header table td.search div.outline {
+
+	position: relative;
+
+}
+
+main div.header table td.search div.outline div.close {
+
+	width: 20px;
+	height: 20px;
+	position: absolute;
+	right: 4px;
+	top: 3px;
+	border-radius: 100%;
+
+	background-image: url('../img/close.svg');
+	background-size: 90%;
+	background-position: center;
+	background-repeat: no-repeat;
+
+	opacity: 0.2;
+	pointer-events: none;
+
+}
+
+main div.header table td.search div.outline div.close.standby {
+
+	opacity: 0.6;
+	pointer-events: all;
+
+}
+
+main div.header table td.search div.outline div.close:hover {
+
+	cursor: pointer;
+	opacity: 0.9;
+
+}
+
+main div.header table td.add {
+
+	width: 110px;
+
+}
+
+main div.header table td.add div.menu {
+
+	height: 0;
+	position: relative;
+	width: 100%;
+	display: none;
+
+}
+
+main div.header table td.add div.menu.open {
+
+	display: block;
+
+}
+
+main div.header table td.add div.menu div.popup ul {
+
+	padding: 0;
+	margin: 0;
+
+}
+
+main div.header table td.add div.menu div.popup div.padding {
+
+	padding: 4px;
+	font-size: 14px;
+	border-bottom: 1px solid #bababa;
+	background-color: #efefef;
+	border-top-left-radius: 5px;
+	border-top-right-radius: 5px;
+
+}
+
+main div.header table td.add div.menu div.popup div.padding table td:last-child {
+
+	text-align: right;
+
+}
+
+main div.header table td.add div.menu div.popup {
+
+	width: 400px;
+	min-height: 60px;
+	background-color: #fff;
+	position: absolute;
+	right: 18px;
+	top: 20px;
+	border-radius: 4px;
+	border: 1px solid #8a8a8a;
+
+}
+
+main div.header table td.add div.menu div.popup:before {
+
+	content: "";
+	display: block;
+	position: absolute;
+	top: -19px;
+	right: 20px;
+	z-index: 10;
+
+	width: 0;
+	height: 0;
+	border-left: 19px solid transparent;
+	border-right: 19px solid transparent;
+	border-bottom: 19px solid #8a8a8a;
+	
+}
+
+main div.header table td.add div.menu div.popup:after {
+
+	content: "";
+	display: block;
+	position: absolute;
+	top: -18px;
+	right: 20px;
+	z-index: 10;
+
+	width: 0;
+	height: 0;
+	border-left: 19px solid transparent;
+	border-right: 19px solid transparent;
+	border-bottom: 19px solid #efefef;
+	
+}
+
+main div.header table td.add div.menu div.popup li {
+
+	padding-top: 8px;
+	padding-bottom: 8px;
+	padding-left: 2px;
+	padding-right: 2px;
+	border-bottom: 1px dashed #333;
+	list-style: none;
+	font-size: 14px;
+
+}
+
+main div.header table td.add div.menu div.popup li div.date {
+
+	font-size: 12px;
+	padding-top: 3px;
+	text-align: right;
+
+}
+
+main div.header table td.add div.menu div.popup li table td.type-label {
+
+	width: 60px;
+	font-weight: bold;
+	text-align: center;
+
+}
+
+main div.header table td.add div.menu div.popup li table td.type-label div.circle {
+
+	width: 40px;
+	height: 40px;
+	border: 1px solid #333;
+	border-radius: 100%;
+	text-align: center;
+	line-height: 40px;
+	font-size: 12px;
+	background-color: #fcf6e0;
+
+}
+
+main div.header table td.add div.menu div.popup li table td.restore div.store {
+
+	width: 40px;
+	height: 40px;
+	border: 1px solid #333;
+	border-radius: 100%;
+	text-align: center;
+	line-height: 40px;
+	display: block;
+	margin: auto;
+
+}
+
+main div.header table td.add div.menu div.popup li table td.restore div.store:hover {
+
+	cursor: pointer;
+	background-color: #f2f2f2;
+
+}
+
+main div.header table td.add div.menu div.popup li table td.restore {
+
+	width: 50px;
+	text-align: right;
+
+}
+
+
+main div.header table td.add div.menu div.popup ul li:last-child {
+
+	border-bottom: none;
+
+}
+
+main div.header table td.add div.icon {
+
+	width: 94%;
+	padding: 2px 0;
+	border: 1px solid #333;
+	border-radius: 10px;
+	font-size: 15px;
+	text-align: center;
+	text-indent: 8px;
+
+	background-size: 20px 20px;
+	background-position: 4px 4px;
+	background-repeat: no-repeat;
+
+	transform: scale(0,0);
+	transition: transform 200ms;
+
+}
+
+main div.header table td.add.open div.icon {
+
+	transform: scale(1, 1);
+
+}
+
+main div.header table td.add div.icon.trash {
+
+	background-image: url('../img/trash.svg');
+	background-color: #e5f3fc;
+
+}
+
+main div.header table td.add div.icon.plus {
+
+	background-image: url('../img/plus.svg');
+	background-color: #e5f3fc;
+
+}
+
+main div.header table td.add button {
+
+	width: calc(100% - 14px);
+	padding: 2px 0;
+	border: 1px solid #ccc;
+	border-radius: 14px;
+	font-size: 14px;
+
+}
+
+main div.header table td.add button:hover {
+
+	cursor: pointer;
+	background-color: #cacaca;
+
+}
+
+main div.header table td.search input[type="text"] {
+
+	width: calc(100% - 4px);
+	padding: 4px 0;
+	border: 1px solid #ccc;
+	border-radius: 4px;
+	text-indent: 8px;
+
+}
+
+main div.header table h2 {
+
+	padding: 0;
+	margin: 0;
+	font-size: 16px;
+	font-weight: 400;
+	letter-spacing: 2px;
+	text-indent: 8px;
+
+}
+
+main div.thead {
+
+	width: 100%;
+	height: calc(var(--thead-height) - 1px);
+	border-bottom: 1px solid var(--line-color);
+	background-color: #ededed;
+
+}
+
+main div.tbody {
+
+	width: 100%;
+	height: calc(100% - var(--header-height) - var(--thead-height));
+	overflow-y: scroll;
+	background-color: #fff;
+
+}
+
+main div.thead table {
+
+	width: calc(100% - var(--scroll-width));
+	height: 100%;
+	table-layout: fixed;
+	border-collapse: collapse;
+	font-size: 14px;
+	font-weight: bold;
+
+}
+
+main div.thead table td {
+
+	border-right: 1px solid var(--line-color);
+	text-indent: 4px;
+	white-space: nowrap;
+	overflow: hidden;
+	text-overflow: ellipsis;
+
+}
+
+main table td.no {
+
+	width: 40px;
+	text-align: center;
+
+}
+
+main table td.no:hover {
+
+	cursor: grab;
+
+}
+
+main table td.postcode {
+
+	width: var(--main-edit-postcode);
+
+}
+
+main table td.rep {
+
+	width: var(--main-edit-rep);
+
+}
+
+main table td.tel {
+
+	width: var(--main-edit-tel);
+
+}
+
+main table td.edit {
+
+/*
+	width: 80px;
+*/
+	width: var(--main-edit-button);
+
+}
+
+main table td.edit.line {
+
+	border-right: 1px solid transparent;
+
+}
+
+main table td.edit-top {
+
+/*
+	width: 163px;
+*/
+	width: var(--main-edit-top);
+	text-align: center;
+
+}
+
+main table td.rank {
+/*
+	width: 80px;
+*/
+	width: var(--rank-width);
+
+}
+
+main table td.radio {
+
+	font-size: 14px;
+	width: 80px;
+
+}
+
+main table td.radio label:hover {
+
+	cursor: pointer;
+
+}
+
+main table td.radio.short {
+
+	width: 50px;
+
+}
+
+main table td.radio label:hover {
+
+	cursor: pointer;
+
+}
+
+main table td.type {
+/*
+	width: 80px;
+*/
+	width: var(--main-type-width);
+
+}
+
+main div.tbody table {
+
+	border-collapse: collapse;
+	table-layout: fixed;
+	width: 100%;
+	font-size: 14px;
+
+}
+
+main div.tbody table thead.ranks {
+
+	display: none;
+
+}
+
+main div.tbody table thead.ranks.open {
+
+	display: table-header-group;
+
+}
+
+main div.tbody table tr.distributor {
+
+	background-color: #fcf6e0;
+
+}
+
+main div.tbody table tr.wholesale {
+
+	background-color: #f0fce0;
+
+}
+
+main div.tbody table tr.location {
+
+	background-color: rgb(237, 247, 255);
+
+}
+
+main div.tbody table tbody tr.edit td:first-child,
+main div.tbody table tbody tr.edit td.edit {
+
+	background-color: rgba(184, 242, 249, 0.2);
+
+}
+
+main div.tbody table td {
+
+	padding-top: 4px;
+	padding-bottom: 4px;
+	border-right: 1px solid var(--line-color);
+	border-bottom: 1px solid var(--line-color);
+
+}
+
+main div.tbody table td.slot_1 {
+
+	background-color: rgb(252, 246, 224);
+
+}
+
+main div.tbody table td.slot_2,
+main div.tbody table td.slot_3,
+main div.tbody table td.slot_4 {
+
+	background-color: rgb(240, 252, 224);
+
+}
+
+main div.tbody table td.slot_5 {
+
+	background-color: rgb(237, 247, 255);
+
+}
+
+main div.tbody table tr.hide {
+
+	display: none;
+
+}
+
+main div.tbody table td input[type="text"] {
+
+	padding: 2px 0;
+	width: calc(100% - 4px);
+	display: block;
+	margin: auto;
+	border: 1px solid #ccc;
+	border-radius: 4px;
+	text-indent: 2px;
+
+}
+
+main div.tbody table td input[type="text"][readonly="readonly"] {
+
+	border-color: transparent;
+	background-color: transparent;
+
+}
+
+main div.tbody table td select:disabled {
+
+	appearance: none;
+	-moz-appearance: none;
+	-webkit-appearance: none;
+
+	color: #333;
+	background-color: transparent;
+	border-color: transparent;
+
+}
+
+/*
+main div.tbody table td button {
+
+	padding: 4px 0;
+	width: calc(100% - 4px);
+	border: 1px solid #ccc;
+	border-radius: 4px;
+	margin: auto;
+	display: block;
+
+}
+*/
+
+main div.tbody table td button {
+
+	padding: 4px 0;
+	width: calc(100% - 4px);
+	border: 1px solid #aaa;
+	border-radius: 14px ;
+	margin: auto;
+	display: block;
+
+}
+
+/*
+main div.tbody table tr:nth-child(even) {
+
+	background-color: #f2f2f2;
+
+}
+*/
+
+main div.tbody table tr.hide{
+
+	display: none;
+
+}
+
+main div.tbody table tr.odd {
+
+/*
+	background-color: #f2f2f2;
+*/
+
+}
+
+main div.tbody table tr.even {
+
+	background-color: #f2f2f2;
+
+}
+
+main div.tbody table tr.danger {
+
+	background-color: #fce8e8 !important;
+
+}
+
+main div.tbody table td button:hover {
+
+	cursor: pointer;
+	background-color: #a0a0a0;
+
+}
+
+main div.tbody table td button.alt {
+
+	display: none;
+
+}
+
+main div.tbody table td button.alt.fill {
+
+	display: block;
+	visibility: hidden;
+	pointer-events: none;
+
+}
+
+main div.tbody table tr.edit td button.alt {
+
+	display: block;
+
+}
+
+main div.tbody table tr.edit td button.alt.fill {
+
+	visibility: visible;
+	pointer-events: all;
+
+}
+
+main div.tbody table tr.edit td button.pri {
+
+	display: none;
+
+}
+
+main div.tbody table td select {
+
+	width: calc(100% - 2px);
+/*
+	padding: 4px 0;
+*/
+	padding: 1px 0;
+	border-radius: 4px;
+	border: 1px solid #ccc;
+	display: block;
+	margin: auto;
+
+}
+
+
+div.context-menu {
+
+    position: absolute;
+    left: 0;
+    top: 0;
+    z-index: 20;
+    background-color: #fff;
+    border: 1px solid #ccc;
+    width: 140px;
+    padding-top: 4px;
+    padding-bottom: 4px;
+	display: none;
+
+}
+
+div.context-menu.open {
+
+	display: block;
+
+}
+
+div.context-menu li {
+
+	list-style: none;
+	color: #0066aa;
+	padding: 4px 0;
+	text-indent: 8px;
+	font-size: 14px;
+
+}
+
+div.context-menu li:hover {
+
+	cursor: pointer;
+	background-color: #0066aa;
+	color: #fff;
+
+}
+
+div.suggest {
+
+	width: calc(100% - 10px);
+	position: relative;
+	display: block;
+	margin: auto;
+
+}
+
+main div.tbody table td div.suggest input[type="text"] {
+
+	width: calc(100% - 2px);
+
+}
+
+div.suggest ul {
+
+	padding: 4px 0;
+	width: calc(100% - 2px);
+	background-color: #fff;
+	border: 1px solid #ccc;
+	position: absolute;
+	left: 0;
+	top: calc(100% - 1px);
+	max-height: 120px;
+	overflow-y: auto;
+	margin: 0;
+	display: none;
+
+}
+
+div.suggest ul li {
+
+	font-size: 14px;
+	color: rgb(0, 102, 170);
+	text-indent: 8px;
+	padding: 4px 0;
+	list-style: none;
+
+}
+
+div.suggest ul li:hover {
+
+	cursor: pointer;
+	background-color: rgb(0, 102, 170);
+	color: #fff;
+
+}
+
+div.suggest.open ul {
+
+	display: block;
+
+}
+
+main div.tbody table tbody.ranks tr:nth-child(odd) {
+
+	background-color: #f2f2f2;
+
+}

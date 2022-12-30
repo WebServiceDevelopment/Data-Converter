@@ -1,0 +1,193 @@
+<!doctype html>
+<html>
+    <head>
+
+        <title>Data Converter</title>
+        <meta charset="utf-8"/>
+
+        <link rel="shortcut icon" type="image/png" href="img/logo_dark.png"/>
+		<link href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP" rel="stylesheet"> 
+        <link href="https://fonts.googleapis.com/css2?family=Montserrat" rel="stylesheet">
+        <link rel="stylesheet" href="css/login.css" type="text/css"/>
+
+    </head>
+    <body>
+
+        <main>
+
+            <section class="login" id="Nav.session.login">
+
+				<div class="main-logo">
+
+				</div>
+
+				<div class="pattern"></div>
+
+				<div class="copyright">
+                    <span class="license">Copyright &copy; 2020, 2021, 2022</span>
+                    <span class="license">Web Service Development Inc.</span>
+				</div>
+
+                <!-- LOGIN FORM -->
+
+                <div id="Nav.form.login" class="form">
+
+                    <h1>ログイン</h1>
+
+                    <div class="msg">
+                        <span id="Nav.login.msg">Error Message goes here</span>
+                    </div>
+
+                    <h3>ユーザ名</h3>
+                    <div class="input">
+                        <div class="icon person"></div>
+                        <input type="text" placeholder="HAYASHI" id='Nav.login.username' autocomplete="off"/>
+                    </div>
+
+                    <h3>パスワード</h3>
+                    <div class="input">
+                        <div class="icon padlock"></div>
+                        <input type="password" placeholder="PASSWORD" id='Nav.login.password' autocomplete="off"/>
+                    </div>
+
+                    <label class="remember">
+                        <input type="checkbox" id="Nav.login.remember"/> ログイン情報を記憶する
+                    </label>
+
+                    <button id='Nav.login.submit'>Submit</button>
+
+                    <div class="center">
+                        <span id="Nav.login.forgot" class="pw">
+							パスワードを忘れた場合
+						</span>
+						<a>Development Version</a>
+						<a>最新更新日：2022年10月25日 (Ver. 504)</a>
+                    </div>
+
+                </div>
+
+                <!-- END LOGIN FORM -->
+
+                <!-- END LOGIN FORM -->
+
+                <!-- PASSWORD RESET FORM -->
+
+                <div id="Nav.form.reset" class="form hide">
+
+                    <h2>Password Reset</h2>
+
+                    <div class="placeholder step01" id="Nav.reset.display">
+
+                        <!-- STEP 01 -->
+
+                        <div class="steps step01">
+
+                            <h3>ユーザ名</h3>
+                            <div class="input">
+                                <input id="Nav.reset.ipt_username" type="text" placeholder="HAYASHI"/>
+                            </div>
+
+                            <button id="Nav.reset.btn_otp_send">One Time Pass (OTP) 送信</button>
+
+                        </div>
+
+                        <div class="steps step02">
+
+                            <p>
+                                Sending Email ...
+                            </p>
+
+                            <div class="mail">
+                                <img src="img/Mail_Icon.png" id="Nav.reset.mail_icon"/>
+                            </div>
+
+                            <div id="Nav.reset.lights" class="squares">
+                                <table>
+                                    <tr>
+                                        <td>
+                                            <div class="square n01"></div>
+                                        </td>
+                                        <td>
+                                            <div class="square n02"></div>
+                                        </td>
+                                        <td>
+                                            <div class="square n03"></div>
+                                        </td>
+                                        <td>
+                                            <div class="square n04"></div>
+                                        </td>
+                                        <td>
+                                            <div class="square n05"></div>
+                                        </td>
+                                    </tr>
+                                </table>
+                            </div>
+
+                        </div>
+
+                        <div class="steps step03">
+
+                            <h3>One Time Code</h3>
+                            <div class="input">
+                                <input id="Nav.reset.ipt_otp_code" type="text" placeholder="6桁の>数字を入力してください"/>
+                            </div>
+
+                            <button id="Nav.reset.btn_otp_conf">One Time Pass (OTP) 確認</button>
+
+                        </div>
+
+                        <div class="steps step04">
+
+                            <h3>新しいパスワード</h3>
+                            <div class="input">
+                                <input type="password" placeholder="New Password" id="Nav.reset.ipt_password"/>
+                            </div>
+
+                            <h3>新しいパスワード確認</h3>
+                            <div class="input">
+                                <input type="password" placeholder="Confirm New Password" id="Nav.reset.ipt_confirm"/>
+                            </div>
+
+                            <button id="Nav.reset.btn_update">パスワード更新</button>
+
+                        </div>
+
+                    </div>
+
+                    <div class="steps step01" id="Nav.reset.steps">
+                        <table>
+                            <tr>
+                                <td>
+                                    <div class="circle step01"></div>
+                                </td>
+                                <td>
+                                    <div class="circle step02"></div>
+                                </td>
+                                <td>
+                                    <div class="circle step03"></div>
+                                </td>
+                                <td>
+                                    <div class="circle step04"></div>
+                                </td>
+                            </tr>
+                        </table>
+                    </div>
+
+                    <div class="center">
+                        <span id="Nav.reset.back" class="pw">ログインに戻る</span>
+                    </div>
+
+                </div>
+
+                <!-- END PASSWORD RESET FORM -->
+
+            </section>
+
+        </main>
+
+<script type="text/javascript" src="lib/str_utils.js"></script>
+<script type="text/javascript" src="js/login.js"></script>
+
+    </body>
+</html>
+

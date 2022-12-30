@@ -1,0 +1,415 @@
+<!doctype html>
+<html>
+	<head>
+		
+		<title>C100</title>
+		<meta charset="utf-8"/>
+		<link rel="stylesheet" type="text/css" href="../css/c500.css"/>
+		<link rel="stylesheet" type="text/css" href="../lib/jquery-ui-1.12.1.custom/jquery-ui.min.css"/>
+
+		<script type='text/javascript' src='../lib/jquery-ui-1.12.1.custom/jquery-3.5.1.min.js'></script>
+		<script type='text/javascript' src='../lib/jquery-ui-1.12.1.custom/jquery-ui.min.js'></script>
+
+	</head>
+
+	<body id="C500.main" style="visibility:hidden">
+
+		<!-- START MODAL -->
+
+		<div class='modal' id='C500.form.modal'>
+
+			<div class='form'>
+
+				<div class='header'>
+					<table>
+						<tr>
+							<td>
+								<h5>ジャンブレ・マスター登録</h5>
+							</td>
+							<td class='btn'>
+								<div class='close' id='C500.form.close'></div>
+							</td>
+						</tr>
+					</table>
+				</div>
+
+				<div class='body'>
+
+					<table>
+						<tr>
+							<td class='label'>
+								ジャンブレ・商品コード<a>*</a>
+							</td>
+							<td class='value'>
+								<input type='text' id='C500.form.jyanbure_code'/>
+							</td>
+						</tr>
+						<tr>
+							<td class='label'>
+								ジャンブレ・商品名<a>*</a>
+							</td>
+							<td class='value'>
+								<input type='text' id='C500.form.jyanbure_name'/>
+							</td>
+						</tr>
+						<tr>
+							<td class='label'>
+								林製紙・商品コード<a>*</a>
+							</td>
+							<td class='value'>
+								<input type='text' id='C500.form.my_company_code'/>
+							</td>
+						</tr>
+						<tr>
+							<td class='label'>
+								林製紙・商品名<a>*</a>
+							</td>
+							<td class='value'>
+								<input type='text' id='C500.form.my_company_name'/>
+							</td>
+						</tr>
+						<tr>
+							<td class='label'>
+								入数<a>*</a>
+							</td>
+							<td class='value'>
+								<input type='text' id='C500.form.inner_count'/>
+							</td>
+						</tr>
+						<tr>
+							<td class='label'>
+								最新販売単価０１
+							</td>
+							<td class='value'>
+								<input type='text' id='C500.form.last_price0'/>
+							</td>
+						</tr>
+						<tr>
+							<td class='label'>
+								最新販売単価０２
+							</td>
+							<td class='value'>
+								<input type='text' id='C500.form.last_price1'/>
+							</td>
+						</tr>
+					</table>
+
+				</div>
+
+				<div class='footer'>
+					<table>
+						<tr>
+							<td>
+								<button id='C500.form.cancel' class='cancel'>キャンセル</button>
+							</td>
+							<td class='space'></td>
+							<td>
+								<button id='C500.form.submit' class='confirm'>登録</button>
+							</td>
+						</tr>
+					</table>
+				</div>
+
+			</div>
+
+		</div>
+
+		<!-- END MODAL -->
+
+		<main>
+
+			<!-- 
+				START ADDRESS WIDGET
+			-->
+
+			<div class="fixes-widget">
+
+				<div class="header">
+
+					<table>
+						<tr>
+							<td class="txt">
+								顧客履歴
+							</td>
+							<td class="sel">
+								<select id="C500.history.select">
+									<option value="order_no">発注番号</option>
+									<option value="order_number">受注番号</option>
+									<option value="customer_no">依頼主顧客コード</option>
+									<option value="recipient_no">お届け先コード</option>
+								</select>
+							</td>
+							<td class="ipt">
+								<input type="text" placeholder="発注番号" id="C500.history.input"/>
+							</td>
+							<td class="btn">
+								<button id="C500.history.search">検索</button>
+							</td>
+						</tr>
+					</table>
+
+
+				</div>
+
+				<div class="body">
+
+
+					<ul id="C500.history.list">
+
+					</ul>
+
+				</div>
+
+			</div>
+
+			<div class="preview-widget">
+
+				<ul id="C500.csv.preview">
+
+				</ul>
+
+				<div class="reset hide" id="C500.history.reset">
+
+					<div class="back" id="C500.history.back">
+						<img src="../img/arrow-back.svg"/>戻る
+					</div>
+				
+				</div>
+
+
+			</div>
+
+			<!--
+				START DELIVER WIDGET
+			-->
+
+			<div class="deliver-widget">
+
+				<div class="totals drop">
+
+					<div class="header">
+
+						EDI CSV (ジャンブレ) *.csv
+						<button id='C500.output.clear'>Clear</button>
+
+					</div>
+
+					<div class="body edi" id="C500.csv.area">
+
+						<div class="drag-area">
+
+							<div class="cover"></div>
+
+							<div class="border">
+								
+								<img class="down" src="../img/down.svg"/>
+
+								<p>
+									<b>Choose a file</b> or drag it here
+								</p>
+
+							</div>
+
+						</div>
+
+						<input id="C400.edi.file" type="file" accept=".pdf"/>
+
+					</div>
+
+				</div>
+
+				<!-- START TOTALS -->
+				
+				<!-- END TOTALS -->
+
+				<div class="csv">
+					
+					<div class="header">
+						CSV Preview
+					</div>
+
+					<textarea id="C500.output.textarea" placeholder="CSV" class="preview"></textarea>
+
+				</div>
+
+				<!-- START CONFIRM -->
+
+				<div class="settings">
+
+					<div class="header">
+						CSV書き出し
+
+						<div class="radio">
+
+						</div>
+
+					</div>
+
+					<div class="body">
+
+						<li>
+							<table>
+								<tr>
+									<td class="label">文字コード</td>
+									<td>
+
+										<label>
+											<input type="radio" 
+												name="encoding" 
+												checked 
+												id="C500.output.sjis"/>
+											SJIS
+										</label>
+
+									</td>
+									<td>
+
+										<label>
+											<input type="radio" 
+												name="encoding" 
+												id="C500.output.utf8"/>
+											UTF8
+										</label>
+
+									</td>
+								</tr>
+
+								<tr>
+									<td class="label">決済手段</td>
+									<td>
+
+										<label>
+											<input type="radio" 
+												name="jyanbure_prepay" 
+												checked 
+												id="C500.output.all"/>
+											一括
+										</label>
+
+									</td>
+									<td>
+
+										<label>
+											<input type="radio" 
+												name="jyanbure_prepay" 
+												id="C500.output.prepayment"/>
+											元払い
+										</label>
+
+									</td>
+									<td>
+
+										<label>
+											<input type="radio" 
+												name="jyanbure_prepay" 
+												id="C500.output.cash_on_delivery"/>
+											代引き
+										</label>
+
+									</td>
+								</tr>
+
+								<tr class='hide'>
+									<td class="label">スキーマの有無</td>
+									<td>
+
+										<label>
+											<input type="radio" 
+												name="comments" 
+												id="C500.output.yes_comments"/>
+											スキーマを含む
+										</label>
+
+									</td>
+									<td>
+
+										<label>
+											<input type="radio" 
+												name="comments" 
+												checked 
+												id="C500.output.no_comments"/>
+											スキーマを含まない
+										</label>
+
+									</td>
+								</tr>
+
+								<tr class='hide'>
+									<td class="label">CSV形式</td>
+									<td>
+
+										<label>
+											<input type="radio" 
+												name="format" 
+												checked 
+												id="C500.output.fmt_send"/>
+											送状形式
+										</label>
+
+									</td>
+									<td>
+
+										<label>
+											<input type="radio" 
+												name="format" 
+												id="C500.output.fmt_wsd"/>
+											WSD形式
+										</label>
+
+									</td>
+								</tr>
+
+								<tr>
+									<td class="label">Filename</td>
+									<td colspan="2">
+
+										<input type="text" 
+											id="C500.output.filename"
+											placeholder="filename"
+											/>
+
+									</td>
+								</tr>
+
+							</table>
+						</li>
+						
+						<table class='no-pad'>
+							<tr>
+								<td>
+									<button class='submit' id='C500.output.fixed'>
+										確定
+									</button>
+								</td>
+								<td>
+									<button class="submit" id="C500.output.submit">
+										CSV 書き出し
+									</button>
+								</td>
+							</tr>
+						</table>
+
+					</div>
+
+				</div>
+
+				<!-- END SETTINGS -->
+
+			</div>
+
+			<!--
+				END DELIVER WIDGET
+			-->
+
+		</main>
+
+<script type="text/javascript" src="../lib/moment.js"></script>
+<script type="text/javascript" src="../lib/FileSaver.js"></script>
+<script type="text/javascript" src="../lib/getFormatPhone.js"></script>
+<script type="text/javascript" src="../lib/encoding.js"></script>
+<script type="text/javascript" src="../lib/ScrollWidth.js"></script>
+<script type="text/javascript" src="../js/c500.js"></script>
+
+	</body>
+
+</html>

@@ -1,0 +1,149 @@
+<!doctype html>
+<html>
+	<head>
+		
+		<title>IPFS Search</title>
+		<meta charset='utf-8'/>
+		<link rel="stylesheet" type="text/css" href="../css/search.css"/>
+
+	</head>
+
+	<body>
+
+		<main id="search.main" style="visibility:hidden">
+
+			<div style='height: 10px; display: block;'></div>
+
+			<!-- SEARCH TOOLBAR -->
+
+			<div class='search-toolbar'>
+
+				<table border='1'>
+					<tr>
+						<th class='a'>取引先</th>
+						<th class='b' colspan='2' >
+							<input name="order_delivery" type="radio" value="order">
+							注文日
+							<span class="space"> </span>
+							<button name="up_down" value="order_up">▲</button>
+							<button name="up_down" value="order_down">▼</button>
+
+						</th>
+						<th class='c' colspan='2' >
+							<input name="order_delivery" type="radio" value="delivery">
+							出荷日
+							<span class="space"> </span>
+							<button name="up_down" value="delivery_up">▲ </button>
+							<button name="up_down" value="delivery_down">▼</button>
+						</th>
+						<th class='d'>納入先会社名</td>
+						<th class='e' colspan='2' >金額</th>
+						<th class='f' colspan='1'>
+							<button id='Search.toolbar.submit'>検索</button>
+						</th>
+						<th class='right'>
+							<span>注文</span>
+							<span id='Search.toolbar.order_total'>0</span>&nbsp;円&nbsp;
+						</td>
+					</tr>
+					<tr>
+						<td>
+							<select id='Search.toolbar.system'>
+								<option value=''></option>
+								<option value='UTSUMI'>内海</option>
+								<option value='JANBURE'>ジャンブレ</option>
+							</select>
+						</td>
+						<!-- 注文日 -->
+						<td class='center'>
+							Start 
+							<input type='date' id='Search.toolbar.order_date_start'/>
+						</td>
+						<td class='center'>
+							End
+							<input type='date' id='Search.toolbar.order_date_end'/></td>
+
+						<!-- 出荷日 -->
+						<td class='center'>
+							Start 
+							<input type='date' id='Search.toolbar.delivery_date_start'/>
+						</td>
+						<td class='center'>
+							End <input type='date' id='Search.toolbar.delivery_date_end'/>
+						</td>
+
+						<!-- 取引先 -->
+						<td><input type='text' id='Search.toolbar.customer'/></td>
+						<!-- 金額 -->
+
+						<td class='center'>
+							Min <input type='number' id='Search.toolbar.amount_min'/>
+						</td>
+						<td class='center'>
+							Max <input type='number' id='Search.toolbar.amount_max'/>
+						</td>
+
+						<!-- 検索 -->
+						<td class='right'>
+							<span id='Search.toolbar.count'>0</span>&nbsp;件&nbsp;
+						</td>
+						<td class='right'>
+							<span>確定</span>
+							<span id='Search.toolbar.confirm_total'>0</span>&nbsp;円&nbsp;
+						</td>
+					</tr>
+				</table>
+
+			</div>
+			
+			<div style='height: 10px; display: block;'></div>
+
+			<!-- Start Scroll Table -->
+
+			<div class='results-table'>
+
+				<div class='header'>
+
+					<table>
+						<tr>
+							<th class='a'>取引先</th>
+							<th class='b'>注文No.</th>
+							<th class='c'>注文日</th>
+							<th class='d'>出荷日</th>
+							<th class='e'>納入先会社名</th>
+							<th class='f' id='Search.header.amount' >金額</td>
+								<span class="tooltip" id='Search.header.amount.tooltip'>確定した金額です</span>
+							<th class='g' id='Search.header.order'>注文 (JSON)
+								<span class="tooltip" id='Search.header.order.tooltip'>受注データを取り込んだ時点で保存します</span>
+</th>
+							<th class='h' id='Search.header.confirm'>確定 (JSON)
+								<span class="tooltip" id='Search.header.confirm.tooltip'>各画面で確定ボタンを押すと保存します</span>
+</th>
+							<th class='j' id='Search.header.ipfs_or_csv'>PDF or CSV
+								<span class="tooltip" id='Search.header.ipfs_or_csv.tooltip'>プライベートなIPFS serverに保存しています</span>
+</th>
+							<th class='k'>確定日時</th>
+						</tr>
+					</table>
+
+				</div>
+
+				<div class='body'>
+
+					<table id='Search.results.table'>
+
+					</table>
+
+				</div>
+
+			</div>
+
+		</main>
+
+		<script type='text/javascript' src='../lib/ScrollWidth.js'></script>
+		<script type='text/javascript' src='../lib/FileSaver.js'></script>
+		<script type='text/javascript' src='../js/search.js'></script>
+
+	</body>
+
+</html>
