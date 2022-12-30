@@ -1,3 +1,5 @@
+![Data Converter Logo](./fig/OneLineBlue-min.png)
+
 # Data-Converter 
 
 [![License](https://img.shields.io/badge/License-Apache_2.0-blue.svg)](https://opensource.org/licenses/Apache-2.0)
@@ -20,6 +22,10 @@ This is the repository for Data Converter, an application for converting EDI fil
 - create database user
 - setup schema for database
 - create first user
+
+## Image
+
+![Data Converter Image](./fig/Illustration_robot_min.png)
 
 ## Copyright
 
