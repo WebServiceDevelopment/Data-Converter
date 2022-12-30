@@ -3,6 +3,8 @@
 
 ![Data Converter Logo](./fig/OneLineBlue-min.png)
 
+### Abstract
+
 This is the repository for Data Converter, an application for converting EDI files formats (such as PDF and CSV) from a source format to a target format which can be read by a company's existing systems. These conversions from a source file to a target file need to be analyzed and written by a programmer, but once the transition is written, it creates a highly realiable interface where all an operator needs to do is drag and drop a file into the application in order to do the coversion. 
 
 ## Installation
